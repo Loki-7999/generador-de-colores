@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Paleta de Colores</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden
+        }
+
+        body {
+            background: #FFFFFF;
+            font-family: Arial, sans-serif;
+            color: #1a1a1a;
+            -webkit-text-size-adjust: 100%
+        }
+
+        /* HEADER */
+        .hdr {
+            background: #262626;
+            border-bottom: 2px solid #1a1a1a;
+            padding: 12px 14px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .3)
+        }
+
+        .ht {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px
+        }
+
+        .logo {
+            font-size: 17px;
+            font-weight: 900;
+            color: #c9960c;
+            white-space: nowrap
+        }
+
+        #srch {
+            flex: 1;
+            padding: 9px 14px;
+            border: 2px solid #444;
+            border-radius: 25px;
+            font-size: 16px;
+            background: #fff;
+            color: #1a1a1a;
+            outline: none;
+            min-width: 0;
+            -webkit-appearance: none;
+            appearance: none
+        }
+
+        .tgs {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: 2px
+        }
+
+        .tgs::-webkit-scrollbar {
+            display: none
+        }
+
+        .tg {
+            display: inline-block;
+            background: #fff;
+            border: 2px solid #555;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #333;
+            white-space: nowrap;
+            flex-shrink: 0;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+            cursor: pointer
+        }
+
+        .tg.active {
+            background: #7a5c0a;
+            border-color: #7a5c0a;
+            color: #fff
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 40px 16px 32px;
+            margin-top: 10px
+        }
+
+        .hero h1 {
+            font-family: Verdana, sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 18px
+        }
+
+        .hero h1 span {
+            color: #7a5c0a
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 14px;
+            line-height: 1.7;
+            font-family: Verdana, sans-serif
+        }
+
+        .hero .sub {
+            color: #7a5c0a;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: Verdana, sans-serif
+        }
+
+        /* WRAP */
+        .wrap {
+            padding: 0 10px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden
+        }
+
+        .sec {
+            margin-bottom: 4px
+        }
+
+        .stitle {
+            font-size: 16px;
+            font-weight: 900;
+            margin: 22px 0 10px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid #7a5c0a;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .scnt {
+            font-size: 11px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 2px 7px;
+            color: #777;
+            font-weight: 700
+        }
+
+        /* GRID */
+        .gr {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            min-width: 0
+        }
+
+        @media(min-width:380px) {
+            .gr {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
+        @media(min-width:520px) {
+            .gr {
+                grid-template-columns: repeat(4, 1fr)
+            }
+        }
+
+        @media(min-width:680px) {
+            .gr {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 10px
+            }
+        }
+
+        @media(min-width:860px) {
+            .gr {
+                grid-template-columns: repeat(6, 1fr)
+            }
+        }
+
+        @media(min-width:1040px) {
+            .gr {
+                grid-template-columns: repeat(7, 1fr)
+            }
+        }
+
+        /* CARD — <a> tag, most reliable on all mobile */
+        .card {
+            display: block;
+            text-decoration: none;
+            color: #1a1a1a;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+            min-width: 0;
+            overflow: hidden;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+            cursor: pointer
+        }
+
+        .card:active {
+            opacity: .75
+        }
+
+        .csw {
+            display: block;
+            height: 80px;
+            width: 100%
+        }
+
+        .cst {
+            display: flex;
+            height: 40px
+        }
+
+        .cst i {
+            flex: 1;
+            display: block;
+            font-style: normal
+        }
+
+        .cin {
+            display: block;
+            padding: 7px 9px 9px
+        }
+
+        .cnm {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: Verdana, sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 2px;
+            color: #1a1a1a
+        }
+
+        .chx {
+            display: block;
+            font-size: 14px;
+            color: #888;
+            font-family: monospace
+        }
+
+        /* OVERLAY */
+        #ov {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .55);
+            z-index: 100;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        /* MODAL */
+        #mdl {
+            display: none;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            border-radius: 16px 16px 0 0;
+            max-height: 88vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            z-index: 101
+        }
+
+        @media(min-width:600px) {
+            #mdl {
+                left: 50%;
+                right: auto;
+                width: 520px;
+                margin-left: -260px;
+                bottom: auto;
+                top: 50%;
+                transform: translateY(-50%);
+                border-radius: 16px
+            }
+        }
+
+        .mhdr {
+            height: 130px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 14px 16px
+        }
+
+        .mname {
+            font-size: 22px;
+            font-weight: 900;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, .5)
+        }
+
+        #mx {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 38px;
+            height: 38px;
+            background: rgba(0, 0, 0, .4);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            padding: 0;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .mbody {
+            padding: 16px 14px 32px
+        }
+
+        .codes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 18px
+        }
+
+        .cbox {
+            background: #f4f4f4;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 9px 11px
+        }
+
+        .clbl {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: .7px;
+            color: #999;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px
+        }
+
+        .crow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4px
+        }
+
+        .cval {
+            font-family: monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: #1a1a1a;
+            word-break: break-all
+        }
+
+        .cpb {
+            background: #7a5c0a;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            flex-shrink: 0;
+            min-height: 34px;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .cpb:active {
+            background: #5a4008
+        }
+
+        .mtitle2 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px
+        }
+
+        .mgrid {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 6px
+        }
+
+        .mc {
+            height: 48px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 3px;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .mc:active {
+            opacity: .7
+        }
+
+        .mc span {
+            font-size: 18px;
+            color: rgba(255, 255, 255, .9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+            pointer-events: none
+        }
+
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #222;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            pointer-events: none;
+            z-index: 999;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity .2s
+        }
+
+        .toast.on {
+            opacity: 1
+        }
+
+        .nores {
+            text-align: center;
+            padding: 50px 20px;
+            color: #888;
+            font-size: 15px;
+            display: none
+        }
+
+        /* Optimizaciones extra para móviles */
+        @media(max-width: 480px) {
+            .logo {
+                font-size: 16px;
+            }
+
+            #srch {
+                padding: 8px 12px;
+                font-size: 16px;
+            }
+
+            /* Mantener >16px previne zoom en iOS */
+            .codes {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 23px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .hero .sub {
+                font-size: 14px;
+            }
+
+            .toast {
+                width: 90%;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .gr {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hdr">
+        <div class="ht">
+            <div class="logo">&#127912; Paleta de Colores</div>
+            <input id="srch" type="text" placeholder="Buscar color..." autocomplete="off">
+        </div>
+        <div class="tgs" id="tgs">
+            <a href="javascript:void(0)" class="tg active" data-cat="all">Todos</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Rojos">Rojo</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Rosas">Rosa</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Naranjas">Naranja</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Amarillos">Amarillo</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Verdes">Verde</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Azules">Azul</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Cianes">Cian</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Violetas">Violeta</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Marrones">Marrón</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Blancos">Blanco</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Grises">Gris</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Negros">Negro</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Especiales">Especial</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Pasteles">Pastel</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Neon">Neon</a>
+            <a href="javascript:void(0)" class="tg" data-cat="Naturaleza">Naturaleza</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Paleta de <span>Colores</span></h1>
+        <p>El generador de Tu paleta de colores es una herramienta gratuita diseñada para que encuentres automáticamente
+            diferentes gamas de colores. ¡Descubre tu paleta de colores ideal para tu emprendimiento!</p>
+        <p class="sub">+150 colores · Toca cualquier color para ver HEX, RGB, HSL y tonos</p>
+    </div>
+
+    <div class="wrap" id="wrap">
+        <div class="nores" id="nores">Sin resultados para tu busqueda</div>
+        <div class="sec" data-cat="Rojos">
+            <div class="stitle">Rojos <span class="scnt">10</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="0"><span class="csw"
+                        style="background:#FF0000"></span><span class="cst"><i style="background:#ffe5e5"></i><i
+                            style="background:#ffb2b2"></i><i style="background:#ff8080"></i><i
+                            style="background:#ff4d4d"></i><i style="background:#ff1a1a"></i><i
+                            style="background:#e60000"></i><i style="background:#b20000"></i><i
+                            style="background:#800000"></i><i style="background:#4c0000"></i></span><span
+                        class="cin"><span class="cnm">Rojo</span><span class="chx">#FF0000</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="1"><span class="csw"
+                        style="background:#DC143C"></span><span class="cst"><i style="background:#fde8ec"></i><i
+                            style="background:#f8b9c6"></i><i style="background:#f48aa0"></i><i
+                            style="background:#f05c79"></i><i style="background:#eb2d53"></i><i
+                            style="background:#d2143a"></i><i style="background:#a30f2d"></i><i
+                            style="background:#750b20"></i><i style="background:#460713"></i></span><span
+                        class="cin"><span class="cnm">Carmesi</span><span class="chx">#DC143C</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="2"><span class="csw"
+                        style="background:#FF2400"></span><span class="cst"><i style="background:#ffe9e5"></i><i
+                            style="background:#ffbdb2"></i><i style="background:#ff9180"></i><i
+                            style="background:#ff644d"></i><i style="background:#ff381a"></i><i
+                            style="background:#e61f00"></i><i style="background:#b21800"></i><i
+                            style="background:#801100"></i><i style="background:#4c0a00"></i></span><span
+                        class="cin"><span class="cnm">Escarlata</span><span class="chx">#FF2400</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="3"><span class="csw"
+                        style="background:#8B0000"></span><span class="cst"><i style="background:#ffe5e5"></i><i
+                            style="background:#ffb2b2"></i><i style="background:#ff8080"></i><i
+                            style="background:#ff4d4d"></i><i style="background:#ff1a1a"></i><i
+                            style="background:#e60000"></i><i style="background:#b20000"></i><i
+                            style="background:#800000"></i><i style="background:#4c0000"></i></span><span
+                        class="cin"><span class="cnm">Rojo Oscuro</span><span class="chx">#8B0000</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="4"><span class="csw"
+                        style="background:#CE2029"></span><span class="cst"><i style="background:#fce9ea"></i><i
+                            style="background:#f5bdc0"></i><i style="background:#ee9195"></i><i
+                            style="background:#e7656b"></i><i style="background:#e03841"></i><i
+                            style="background:#c71f27"></i><i style="background:#9a181f"></i><i
+                            style="background:#6e1116"></i><i style="background:#420a0d"></i></span><span
+                        class="cin"><span class="cnm">Rojo Fuego</span><span class="chx">#CE2029</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="5"><span class="csw"
+                        style="background:#800020"></span><span class="cst"><i style="background:#ffe5ec"></i><i
+                            style="background:#ffb2c6"></i><i style="background:#ff809f"></i><i
+                            style="background:#ff4d79"></i><i style="background:#ff1a53"></i><i
+                            style="background:#e60039"></i><i style="background:#b2002d"></i><i
+                            style="background:#800020"></i><i style="background:#4c0013"></i></span><span
+                        class="cin"><span class="cnm">Granate</span><span class="chx">#800020</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="6"><span class="csw"
+                        style="background:#FF6347"></span><span class="cst"><i style="background:#ffe9e5"></i><i
+                            style="background:#ffbeb2"></i><i style="background:#ff9380"></i><i
+                            style="background:#ff674d"></i><i style="background:#ff3c1a"></i><i
+                            style="background:#e62200"></i><i style="background:#b21b00"></i><i
+                            style="background:#801300"></i><i style="background:#4c0b00"></i></span><span
+                        class="cin"><span class="cnm">Rojo Tomate</span><span class="chx">#FF6347</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="7"><span class="csw"
+                        style="background:#E30B5D"></span><span class="cst"><i style="background:#fee7f0"></i><i
+                            style="background:#fcb6d1"></i><i style="background:#f985b2"></i><i
+                            style="background:#f75593"></i><i style="background:#f52474"></i><i
+                            style="background:#db0a5a"></i><i style="background:#aa0846"></i><i
+                            style="background:#7a0632"></i><i style="background:#49031e"></i></span><span
+                        class="cin"><span class="cnm">Frambuesa</span><span class="chx">#E30B5D</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="8"><span class="csw"
+                        style="background:#CB4154"></span><span class="cst"><i style="background:#faebed"></i><i
+                            style="background:#efc3c9"></i><i style="background:#e49ba5"></i><i
+                            style="background:#d97380"></i><i style="background:#ce4b5c"></i><i
+                            style="background:#b43143"></i><i style="background:#8c2634"></i><i
+                            style="background:#641b25"></i><i style="background:#3c1016"></i></span><span
+                        class="cin"><span class="cnm">Ladrillo</span><span class="chx">#CB4154</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="9"><span class="csw"
+                        style="background:#800000"></span><span class="cst"><i style="background:#ffe5e5"></i><i
+                            style="background:#ffb2b2"></i><i style="background:#ff8080"></i><i
+                            style="background:#ff4d4d"></i><i style="background:#ff1a1a"></i><i
+                            style="background:#e60000"></i><i style="background:#b20000"></i><i
+                            style="background:#800000"></i><i style="background:#4c0000"></i></span><span
+                        class="cin"><span class="cnm">Borgona</span><span class="chx">#800000</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Rosas">
+            <div class="stitle">Rosas <span class="scnt">10</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="10"><span class="csw"
+                        style="background:#FF69B4"></span><span class="cst"><i style="background:#ffe5f2"></i><i
+                            style="background:#ffb2d9"></i><i style="background:#ff80bf"></i><i
+                            style="background:#ff4da6"></i><i style="background:#ff1a8c"></i><i
+                            style="background:#e60073"></i><i style="background:#b20059"></i><i
+                            style="background:#800040"></i><i style="background:#4c0026"></i></span><span
+                        class="cin"><span class="cnm">Rosa</span><span class="chx">#FF69B4</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="11"><span class="csw"
+                        style="background:#FF1493"></span><span class="cst"><i style="background:#ffe5f3"></i><i
+                            style="background:#ffb2db"></i><i style="background:#ff80c3"></i><i
+                            style="background:#ff4dac"></i><i style="background:#ff1a94"></i><i
+                            style="background:#e6007a"></i><i style="background:#b2005f"></i><i
+                            style="background:#800044"></i><i style="background:#4c0029"></i></span><span
+                        class="cin"><span class="cnm">Rosa Fucsia</span><span class="chx">#FF1493</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="12"><span class="csw"
+                        style="background:#FFB6C1"></span><span class="cst"><i style="background:#ffe5e9"></i><i
+                            style="background:#ffb2be"></i><i style="background:#ff8093"></i><i
+                            style="background:#ff4d67"></i><i style="background:#ff1a3c"></i><i
+                            style="background:#e60022"></i><i style="background:#b2001b"></i><i
+                            style="background:#800013"></i><i style="background:#4c000b"></i></span><span
+                        class="cin"><span class="cnm">Rosa Claro</span><span class="chx">#FFB6C1</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="13"><span class="csw"
+                        style="background:#FF007F"></span><span class="cst"><i style="background:#ffe5f2"></i><i
+                            style="background:#ffb2d9"></i><i style="background:#ff80bf"></i><i
+                            style="background:#ff4da6"></i><i style="background:#ff1a8c"></i><i
+                            style="background:#e60073"></i><i style="background:#b20059"></i><i
+                            style="background:#800040"></i><i style="background:#4c0026"></i></span><span
+                        class="cin"><span class="cnm">Rosa Profundo</span><span class="chx">#FF007F</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="14"><span class="csw"
+                        style="background:#F4C2C2"></span><span class="cst"><i style="background:#fbe9e9"></i><i
+                            style="background:#f3bebe"></i><i style="background:#eb9393"></i><i
+                            style="background:#e36868"></i><i style="background:#db3d3d"></i><i
+                            style="background:#c22424"></i><i style="background:#971c1c"></i><i
+                            style="background:#6c1414"></i><i style="background:#410c0c"></i></span><span
+                        class="cin"><span class="cnm">Rosa Bebe</span><span class="chx">#F4C2C2</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="15"><span class="csw"
+                        style="background:#C08081"></span><span class="cst"><i style="background:#f7eeee"></i><i
+                            style="background:#e6cccc"></i><i style="background:#d5aaaa"></i><i
+                            style="background:#c48788"></i><i style="background:#b36567"></i><i
+                            style="background:#9a4c4d"></i><i style="background:#783b3c"></i><i
+                            style="background:#552a2b"></i><i style="background:#33191a"></i></span><span
+                        class="cin"><span class="cnm">Rosa Antiguo</span><span class="chx">#C08081</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="16"><span class="csw"
+                        style="background:#DE3163"></span><span class="cst"><i style="background:#fbe9ee"></i><i
+                            style="background:#f4bdcd"></i><i style="background:#ed91ab"></i><i
+                            style="background:#e6658a"></i><i style="background:#df3a68"></i><i
+                            style="background:#c5204f"></i><i style="background:#9a193d"></i><i
+                            style="background:#6e122c"></i><i style="background:#420b1a"></i></span><span
+                        class="cin"><span class="cnm">Rosa Cereza</span><span class="chx">#DE3163</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="17"><span class="csw"
+                        style="background:#CC00CC"></span><span class="cst"><i style="background:#ffe5ff"></i><i
+                            style="background:#ffb2ff"></i><i style="background:#ff80ff"></i><i
+                            style="background:#ff4dff"></i><i style="background:#ff1aff"></i><i
+                            style="background:#e600e6"></i><i style="background:#b200b2"></i><i
+                            style="background:#800080"></i><i style="background:#4c004c"></i></span><span
+                        class="cin"><span class="cnm">Magenta</span><span class="chx">#CC00CC</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="18"><span class="csw"
+                        style="background:#DA70D6"></span><span class="cst"><i style="background:#faebf9"></i><i
+                            style="background:#efc2ee"></i><i style="background:#e59ae2"></i><i
+                            style="background:#da71d7"></i><i style="background:#d049cb"></i><i
+                            style="background:#b62fb2"></i><i style="background:#8e258a"></i><i
+                            style="background:#651a63"></i><i style="background:#3d103b"></i></span><span
+                        class="cin"><span class="cnm">Orquidea</span><span class="chx">#DA70D6</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="19"><span class="csw"
+                        style="background:#F88379"></span><span class="cst"><i style="background:#fee9e7"></i><i
+                            style="background:#fbbcb6"></i><i style="background:#f98f86"></i><i
+                            style="background:#f66355"></i><i style="background:#f43625"></i><i
+                            style="background:#da1d0b"></i><i style="background:#aa1609"></i><i
+                            style="background:#791006"></i><i style="background:#490a04"></i></span><span
+                        class="cin"><span class="cnm">Rosa Coral</span><span class="chx">#F88379</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Naranjas">
+            <div class="stitle">Naranjas <span class="scnt">10</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="20"><span class="csw"
+                        style="background:#FF8000"></span><span class="cst"><i style="background:#fff2e5"></i><i
+                            style="background:#ffd9b2"></i><i style="background:#ffbf80"></i><i
+                            style="background:#ffa64d"></i><i style="background:#ff8c1a"></i><i
+                            style="background:#e67300"></i><i style="background:#b25900"></i><i
+                            style="background:#804000"></i><i style="background:#4c2600"></i></span><span
+                        class="cin"><span class="cnm">Naranja</span><span class="chx">#FF8000</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="21"><span class="csw"
+                        style="background:#FF6600"></span><span class="cst"><i style="background:#fff0e5"></i><i
+                            style="background:#ffd1b2"></i><i style="background:#ffb380"></i><i
+                            style="background:#ff944d"></i><i style="background:#ff751a"></i><i
+                            style="background:#e65c00"></i><i style="background:#b24700"></i><i
+                            style="background:#803300"></i><i style="background:#4c1f00"></i></span><span
+                        class="cin"><span class="cnm">Naranja Oscuro</span><span class="chx">#FF6600</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="22"><span class="csw"
+                        style="background:#FFAD00"></span><span class="cst"><i style="background:#fff7e5"></i><i
+                            style="background:#ffe7b2"></i><i style="background:#ffd780"></i><i
+                            style="background:#ffc64d"></i><i style="background:#ffb61a"></i><i
+                            style="background:#e69d00"></i><i style="background:#b27a00"></i><i
+                            style="background:#805700"></i><i style="background:#4c3400"></i></span><span
+                        class="cin"><span class="cnm">Naranja Claro</span><span class="chx">#FFAD00</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="23"><span class="csw"
+                        style="background:#F28500"></span><span class="cst"><i style="background:#fff4e5"></i><i
+                            style="background:#ffddb2"></i><i style="background:#ffc680"></i><i
+                            style="background:#ffaf4d"></i><i style="background:#ff981a"></i><i
+                            style="background:#e67e00"></i><i style="background:#b26200"></i><i
+                            style="background:#804600"></i><i style="background:#4c2a00"></i></span><span
+                        class="cin"><span class="cnm">Mandarina</span><span class="chx">#F28500</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="24"><span class="csw"
+                        style="background:#FFBF00"></span><span class="cst"><i style="background:#fff9e5"></i><i
+                            style="background:#ffecb2"></i><i style="background:#ffdf80"></i><i
+                            style="background:#ffd24d"></i><i style="background:#ffc61a"></i><i
+                            style="background:#e6ac00"></i><i style="background:#b28600"></i><i
+                            style="background:#806000"></i><i style="background:#4c3900"></i></span><span
+                        class="cin"><span class="cnm">Ambar</span><span class="chx">#FFBF00</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="25"><span class="csw"
+                        style="background:#FFCBA4"></span><span class="cst"><i style="background:#fff1e5"></i><i
+                            style="background:#ffd4b2"></i><i style="background:#ffb780"></i><i
+                            style="background:#ff9a4d"></i><i style="background:#ff7d1a"></i><i
+                            style="background:#e66300"></i><i style="background:#b24d00"></i><i
+                            style="background:#803700"></i><i style="background:#4c2100"></i></span><span
+                        class="cin"><span class="cnm">Melocoton</span><span class="chx">#FFCBA4</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="26"><span class="csw"
+                        style="background:#FA8072"></span><span class="cst"><i style="background:#fee9e6"></i><i
+                            style="background:#fcbcb5"></i><i style="background:#fb9084"></i><i
+                            style="background:#f96353"></i><i style="background:#f73722"></i><i
+                            style="background:#dd1d08"></i><i style="background:#ac1706"></i><i
+                            style="background:#7b1004"></i><i style="background:#4a0a03"></i></span><span
+                        class="cin"><span class="cnm">Salmon</span><span class="chx">#FA8072</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="27"><span class="csw"
+                        style="background:#FF7F50"></span><span class="cst"><i style="background:#ffece5"></i><i
+                            style="background:#ffc7b2"></i><i style="background:#ffa280"></i><i
+                            style="background:#ff7c4d"></i><i style="background:#ff571a"></i><i
+                            style="background:#e63d00"></i><i style="background:#b23000"></i><i
+                            style="background:#802200"></i><i style="background:#4c1400"></i></span><span
+                        class="cin"><span class="cnm">Coral</span><span class="chx">#FF7F50</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="28"><span class="csw"
+                        style="background:#FBCEB1"></span><span class="cst"><i style="background:#fef0e7"></i><i
+                            style="background:#fbd2b6"></i><i style="background:#f9b486"></i><i
+                            style="background:#f69655"></i><i style="background:#f47825"></i><i
+                            style="background:#da5e0b"></i><i style="background:#aa4909"></i><i
+                            style="background:#793406"></i><i style="background:#491f04"></i></span><span
+                        class="cin"><span class="cnm">Albaricoque</span><span class="chx">#FBCEB1</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="29"><span class="csw"
+                        style="background:#FF7518"></span><span class="cst"><i style="background:#fff0e5"></i><i
+                            style="background:#ffd1b2"></i><i style="background:#ffb380"></i><i
+                            style="background:#ff944d"></i><i style="background:#ff751a"></i><i
+                            style="background:#e65c00"></i><i style="background:#b24700"></i><i
+                            style="background:#803300"></i><i style="background:#4c1f00"></i></span><span
+                        class="cin"><span class="cnm">Calabaza</span><span class="chx">#FF7518</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Amarillos">
+            <div class="stitle">Amarillos <span class="scnt">10</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="30"><span class="csw"
+                        style="background:#FFEE00"></span><span class="cst"><i style="background:#fffde5"></i><i
+                            style="background:#fffab2"></i><i style="background:#fff780"></i><i
+                            style="background:#fff34d"></i><i style="background:#fff01a"></i><i
+                            style="background:#e6d600"></i><i style="background:#b2a700"></i><i
+                            style="background:#807700"></i><i style="background:#4c4700"></i></span><span
+                        class="cin"><span class="cnm">Amarillo</span><span class="chx">#FFEE00</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="31"><span class="csw"
+                        style="background:#FFF44F"></span><span class="cst"><i style="background:#fffde5"></i><i
+                            style="background:#fffab2"></i><i style="background:#fff780"></i><i
+                            style="background:#fff34d"></i><i style="background:#fff01a"></i><i
+                            style="background:#e6d600"></i><i style="background:#b2a700"></i><i
+                            style="background:#807700"></i><i style="background:#4c4700"></i></span><span
+                        class="cin"><span class="cnm">Limon</span><span class="chx">#FFF44F</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="32"><span class="csw"
+                        style="background:#FFEF00"></span><span class="cst"><i style="background:#fffde5"></i><i
+                            style="background:#fffab2"></i><i style="background:#fff780"></i><i
+                            style="background:#fff34d"></i><i style="background:#fff01a"></i><i
+                            style="background:#e6d600"></i><i style="background:#b2a700"></i><i
+                            style="background:#807700"></i><i style="background:#4c4700"></i></span><span
+                        class="cin"><span class="cnm">Canario</span><span class="chx">#FFEF00</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="33"><span class="csw"
+                        style="background:#FFD700"></span><span class="cst"><i style="background:#fffbe5"></i><i
+                            style="background:#fff4b2"></i><i style="background:#ffec80"></i><i
+                            style="background:#ffe44d"></i><i style="background:#ffdd1a"></i><i
+                            style="background:#e6c300"></i><i style="background:#b29800"></i><i
+                            style="background:#806c00"></i><i style="background:#4c4100"></i></span><span
+                        class="cin"><span class="cnm">Oro</span><span class="chx">#FFD700</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="34"><span class="csw"
+                        style="background:#DAA520"></span><span class="cst"><i style="background:#fcf6e9"></i><i
+                            style="background:#f5e5bc"></i><i style="background:#eed490"></i><i
+                            style="background:#e8c264"></i><i style="background:#e1b137"></i><i
+                            style="background:#c8981e"></i><i style="background:#9b7617"></i><i
+                            style="background:#6f5411"></i><i style="background:#43330a"></i></span><span
+                        class="cin"><span class="cnm">Dorado</span><span class="chx">#DAA520</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="35"><span class="csw"
+                        style="background:#FFFDD0"></span><span class="cst"><i style="background:#fffee5"></i><i
+                            style="background:#fffbb2"></i><i style="background:#fff980"></i><i
+                            style="background:#fff64d"></i><i style="background:#fff41a"></i><i
+                            style="background:#e6da00"></i><i style="background:#b2aa00"></i><i
+                            style="background:#807900"></i><i style="background:#4c4900"></i></span><span
+                        class="cin"><span class="cnm">Crema</span><span class="chx">#FFFDD0</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="36"><span class="csw"
+                        style="background:#FFFD74"></span><span class="cst"><i style="background:#ffffe5"></i><i
+                            style="background:#fffeb2"></i><i style="background:#fffd80"></i><i
+                            style="background:#fffc4d"></i><i style="background:#fffb1a"></i><i
+                            style="background:#e6e200"></i><i style="background:#b2b000"></i><i
+                            style="background:#807d00"></i><i style="background:#4c4b00"></i></span><span
+                        class="cin"><span class="cnm">Mantequilla</span><span class="chx">#FFFD74</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="37"><span class="csw"
+                        style="background:#E4D96F"></span><span class="cst"><i style="background:#fbf9ea"></i><i
+                            style="background:#f3eebf"></i><i style="background:#ebe294"></i><i
+                            style="background:#e2d669"></i><i style="background:#dacb3e"></i><i
+                            style="background:#c1b125"></i><i style="background:#968a1d"></i><i
+                            style="background:#6b6214"></i><i style="background:#403b0c"></i></span><span
+                        class="cin"><span class="cnm">Paja</span><span class="chx">#E4D96F</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="38"><span class="csw"
+                        style="background:#E1AD01"></span><span class="cst"><i style="background:#fff9e6"></i><i
+                            style="background:#ffedb3"></i><i style="background:#fee180"></i><i
+                            style="background:#fed54d"></i><i style="background:#fec91b"></i><i
+                            style="background:#e4af01"></i><i style="background:#b28801"></i><i
+                            style="background:#7f6101"></i><i style="background:#4c3a00"></i></span><span
+                        class="cin"><span class="cnm">Mostaza</span><span class="chx">#E1AD01</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="39"><span class="csw"
+                        style="background:#F7E7CE"></span><span class="cst"><i style="background:#fbf4e9"></i><i
+                            style="background:#f4dfbd"></i><i style="background:#edca91"></i><i
+                            style="background:#e6b565"></i><i style="background:#dfa03a"></i><i
+                            style="background:#c58620"></i><i style="background:#9a6819"></i><i
+                            style="background:#6e4a12"></i><i style="background:#422d0b"></i></span><span
+                        class="cin"><span class="cnm">Champana</span><span class="chx">#F7E7CE</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Verdes">
+            <div class="stitle">Verdes <span class="scnt">14</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="40"><span class="csw"
+                        style="background:#00BB00"></span><span class="cst"><i style="background:#e5ffe5"></i><i
+                            style="background:#b2ffb2"></i><i style="background:#80ff80"></i><i
+                            style="background:#4dff4d"></i><i style="background:#1aff1a"></i><i
+                            style="background:#00e600"></i><i style="background:#00b200"></i><i
+                            style="background:#008000"></i><i style="background:#004c00"></i></span><span
+                        class="cin"><span class="cnm">Verde</span><span class="chx">#00BB00</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="41"><span class="csw"
+                        style="background:#32CD32"></span><span class="cst"><i style="background:#eafaea"></i><i
+                            style="background:#c1f0c1"></i><i style="background:#98e698"></i><i
+                            style="background:#6fdc6f"></i><i style="background:#46d246"></i><i
+                            style="background:#2db92d"></i><i style="background:#239023"></i><i
+                            style="background:#196719"></i><i style="background:#0f3e0f"></i></span><span
+                        class="cin"><span class="cnm">Verde Lima</span><span class="chx">#32CD32</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="42"><span class="csw"
+                        style="background:#228B22"></span><span class="cst"><i style="background:#eafaea"></i><i
+                            style="background:#c1f0c1"></i><i style="background:#98e698"></i><i
+                            style="background:#6fdc6f"></i><i style="background:#46d246"></i><i
+                            style="background:#2db92d"></i><i style="background:#239023"></i><i
+                            style="background:#196719"></i><i style="background:#0f3e0f"></i></span><span
+                        class="cin"><span class="cnm">Verde Bosque</span><span class="chx">#228B22</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="43"><span class="csw"
+                        style="background:#006400"></span><span class="cst"><i style="background:#e5ffe5"></i><i
+                            style="background:#b2ffb2"></i><i style="background:#80ff80"></i><i
+                            style="background:#4dff4d"></i><i style="background:#1aff1a"></i><i
+                            style="background:#00e600"></i><i style="background:#00b200"></i><i
+                            style="background:#008000"></i><i style="background:#004c00"></i></span><span
+                        class="cin"><span class="cnm">Verde Oscuro</span><span class="chx">#006400</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="44"><span class="csw"
+                        style="background:#808000"></span><span class="cst"><i style="background:#ffffe5"></i><i
+                            style="background:#ffffb2"></i><i style="background:#ffff80"></i><i
+                            style="background:#ffff4d"></i><i style="background:#ffff1a"></i><i
+                            style="background:#e6e600"></i><i style="background:#b2b200"></i><i
+                            style="background:#808000"></i><i style="background:#4c4c00"></i></span><span
+                        class="cin"><span class="cnm">Verde Oliva</span><span class="chx">#808000</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="45"><span class="csw"
+                        style="background:#01796F"></span><span class="cst"><i style="background:#e6fffd"></i><i
+                            style="background:#b3fef8"></i><i style="background:#81fef3"></i><i
+                            style="background:#4efdef"></i><i style="background:#1cfdea"></i><i
+                            style="background:#02e3d0"></i><i style="background:#02b1a2"></i><i
+                            style="background:#017e74"></i><i style="background:#014c45"></i></span><span
+                        class="cin"><span class="cnm">Verde Pino</span><span class="chx">#01796F</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="46"><span class="csw"
+                        style="background:#98FF98"></span><span class="cst"><i style="background:#e5ffe5"></i><i
+                            style="background:#b2ffb2"></i><i style="background:#80ff80"></i><i
+                            style="background:#4dff4d"></i><i style="background:#1aff1a"></i><i
+                            style="background:#00e600"></i><i style="background:#00b200"></i><i
+                            style="background:#008000"></i><i style="background:#004c00"></i></span><span
+                        class="cin"><span class="cnm">Verde Menta</span><span class="chx">#98FF98</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="47"><span class="csw"
+                        style="background:#00A36C"></span><span class="cst"><i style="background:#e5fff6"></i><i
+                            style="background:#b2ffe5"></i><i style="background:#80ffd4"></i><i
+                            style="background:#4dffc3"></i><i style="background:#1affb2"></i><i
+                            style="background:#00e699"></i><i style="background:#00b277"></i><i
+                            style="background:#008055"></i><i style="background:#004c33"></i></span><span
+                        class="cin"><span class="cnm">Verde Jade</span><span class="chx">#00A36C</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="48"><span class="csw"
+                        style="background:#50C878"></span><span class="cst"><i style="background:#ecf9f0"></i><i
+                            style="background:#c5edd2"></i><i style="background:#9ee0b4"></i><i
+                            style="background:#77d496"></i><i style="background:#51c878"></i><i
+                            style="background:#37ae5f"></i><i style="background:#2b884a"></i><i
+                            style="background:#1f6135"></i><i style="background:#123a20"></i></span><span
+                        class="cin"><span class="cnm">Verde Esmeralda</span><span
+                            class="chx">#50C878</span></span></a><a href="javascript:void(0)" class="card"
+                    data-i="49"><span class="csw" style="background:#8A9A5B"></span><span class="cst"><i
+                            style="background:#f4f6ef"></i><i style="background:#dee3cf"></i><i
+                            style="background:#c8d0af"></i><i style="background:#b1bd8f"></i><i
+                            style="background:#9baa6e"></i><i style="background:#829155"></i><i
+                            style="background:#657042"></i><i style="background:#48502f"></i><i
+                            style="background:#2b301c"></i></span><span class="cin"><span class="cnm">Verde
+                            Musgo</span><span class="chx">#8A9A5B</span></span></a><a href="javascript:void(0)"
+                    class="card" data-i="50"><span class="csw" style="background:#8FBC8F"></span><span class="cst"><i
+                            style="background:#eff5ef"></i><i style="background:#cfe2cf"></i><i
+                            style="background:#afcfaf"></i><i style="background:#8fbc8f"></i><i
+                            style="background:#70a970"></i><i style="background:#568f56"></i><i
+                            style="background:#437043"></i><i style="background:#305030"></i><i
+                            style="background:#1d301d"></i></span><span class="cin"><span class="cnm">Verde
+                            Salvia</span><span class="chx">#8FBC8F</span></span></a><a href="javascript:void(0)"
+                    class="card" data-i="51"><span class="csw" style="background:#2E8B57"></span><span class="cst"><i
+                            style="background:#ecf9f1"></i><i style="background:#c6ecd6"></i><i
+                            style="background:#9fdfbb"></i><i style="background:#79d2a0"></i><i
+                            style="background:#53c685"></i><i style="background:#39ac6b"></i><i
+                            style="background:#2d8653"></i><i style="background:#20603c"></i><i
+                            style="background:#133924"></i></span><span class="cin"><span class="cnm">Verde
+                            Mar</span><span class="chx">#2E8B57</span></span></a><a href="javascript:void(0)"
+                    class="card" data-i="52"><span class="csw" style="background:#8DB600"></span><span class="cst"><i
+                            style="background:#f9ffe5"></i><i style="background:#edffb2"></i><i
+                            style="background:#e1ff80"></i><i style="background:#d5ff4d"></i><i
+                            style="background:#c9ff1a"></i><i style="background:#b0e600"></i><i
+                            style="background:#89b200"></i><i style="background:#628000"></i><i
+                            style="background:#3b4c00"></i></span><span class="cin"><span class="cnm">Verde
+                            Manzana</span><span class="chx">#8DB600</span></span></a><a href="javascript:void(0)"
+                    class="card" data-i="53"><span class="csw" style="background:#7CFC00"></span><span class="cst"><i
+                            style="background:#f2ffe5"></i><i style="background:#d9ffb2"></i><i
+                            style="background:#bfff80"></i><i style="background:#a6ff4d"></i><i
+                            style="background:#8cff1a"></i><i style="background:#73e600"></i><i
+                            style="background:#59b200"></i><i style="background:#408000"></i><i
+                            style="background:#264c00"></i></span><span class="cin"><span class="cnm">Verde
+                            Prado</span><span class="chx">#7CFC00</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Azules">
+            <div class="stitle">Azules <span class="scnt">14</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="54"><span class="csw"
+                        style="background:#0055FF"></span><span class="cst"><i style="background:#e5eeff"></i><i
+                            style="background:#b2ccff"></i><i style="background:#80aaff"></i><i
+                            style="background:#4d88ff"></i><i style="background:#1a66ff"></i><i
+                            style="background:#004de6"></i><i style="background:#003cb2"></i><i
+                            style="background:#002b80"></i><i style="background:#001a4c"></i></span><span
+                        class="cin"><span class="cnm">Azul</span><span class="chx">#0055FF</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="55"><span class="csw"
+                        style="background:#87CEEB"></span><span class="cst"><i style="background:#e9f6fb"></i><i
+                            style="background:#bee5f4"></i><i style="background:#92d3ed"></i><i
+                            style="background:#66c1e5"></i><i style="background:#3bb0de"></i><i
+                            style="background:#2196c4"></i><i style="background:#1a7599"></i><i
+                            style="background:#12536d"></i><i style="background:#0b3241"></i></span><span
+                        class="cin"><span class="cnm">Azul Cielo</span><span class="chx">#87CEEB</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="56"><span class="csw"
+                        style="background:#000080"></span><span class="cst"><i style="background:#e5e5ff"></i><i
+                            style="background:#b2b2ff"></i><i style="background:#8080ff"></i><i
+                            style="background:#4d4dff"></i><i style="background:#1a1aff"></i><i
+                            style="background:#0000e6"></i><i style="background:#0000b2"></i><i
+                            style="background:#000080"></i><i style="background:#00004c"></i></span><span
+                        class="cin"><span class="cnm">Azul Marino</span><span class="chx">#000080</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="57"><span class="csw"
+                        style="background:#0047AB"></span><span class="cst"><i style="background:#e5f0ff"></i><i
+                            style="background:#b2d2ff"></i><i style="background:#80b5ff"></i><i
+                            style="background:#4d97ff"></i><i style="background:#1a79ff"></i><i
+                            style="background:#0060e6"></i><i style="background:#004ab2"></i><i
+                            style="background:#003580"></i><i style="background:#00204c"></i></span><span
+                        class="cin"><span class="cnm">Azul Cobalto</span><span class="chx">#0047AB</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="58"><span class="csw"
+                        style="background:#4169E1"></span><span class="cst"><i style="background:#e9eefc"></i><i
+                            style="background:#bdcbf5"></i><i style="background:#91a8ee"></i><i
+                            style="background:#6585e7"></i><i style="background:#3862e0"></i><i
+                            style="background:#1f49c7"></i><i style="background:#18399a"></i><i
+                            style="background:#11286e"></i><i style="background:#0a1842"></i></span><span
+                        class="cin"><span class="cnm">Azul Real</span><span class="chx">#4169E1</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="59"><span class="csw"
+                        style="background:#4682B4"></span><span class="cst"><i style="background:#edf3f8"></i><i
+                            style="background:#c8daea"></i><i style="background:#a3c2db"></i><i
+                            style="background:#7eaacd"></i><i style="background:#5a91bf"></i><i
+                            style="background:#4078a5"></i><i style="background:#325d81"></i><i
+                            style="background:#24435c"></i><i style="background:#152837"></i></span><span
+                        class="cin"><span class="cnm">Azul Acero</span><span class="chx">#4682B4</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="60"><span class="csw"
+                        style="background:#00CED1"></span><span class="cst"><i style="background:#e5ffff"></i><i
+                            style="background:#b2feff"></i><i style="background:#80fdff"></i><i
+                            style="background:#4dfcff"></i><i style="background:#1afbff"></i><i
+                            style="background:#00e2e6"></i><i style="background:#00b0b2"></i><i
+                            style="background:#007d80"></i><i style="background:#004b4c"></i></span><span
+                        class="cin"><span class="cnm">Azul Turquesa</span><span class="chx">#00CED1</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="61"><span class="csw"
+                        style="background:#00BFFF"></span><span class="cst"><i style="background:#e5f9ff"></i><i
+                            style="background:#b2ecff"></i><i style="background:#80dfff"></i><i
+                            style="background:#4dd2ff"></i><i style="background:#1ac6ff"></i><i
+                            style="background:#00ace6"></i><i style="background:#0086b2"></i><i
+                            style="background:#006080"></i><i style="background:#00394c"></i></span><span
+                        class="cin"><span class="cnm">Azul Electrico</span><span class="chx">#00BFFF</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="62"><span class="csw"
+                        style="background:#0F52BA"></span><span class="cst"><i style="background:#e7f0fd"></i><i
+                            style="background:#b8d2f9"></i><i style="background:#89b4f5"></i><i
+                            style="background:#5a97f2"></i><i style="background:#2b79ee"></i><i
+                            style="background:#115fd4"></i><i style="background:#0d4aa5"></i><i
+                            style="background:#0a3576"></i><i style="background:#062047"></i></span><span
+                        class="cin"><span class="cnm">Azul Zafiro</span><span class="chx">#0F52BA</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="63"><span class="csw"
+                        style="background:#191970"></span><span class="cst"><i style="background:#eaeafa"></i><i
+                            style="background:#c0c0f1"></i><i style="background:#9696e8"></i><i
+                            style="background:#6d6ddf"></i><i style="background:#4343d6"></i><i
+                            style="background:#2929bc"></i><i style="background:#202092"></i><i
+                            style="background:#171769"></i><i style="background:#0e0e3f"></i></span><span
+                        class="cin"><span class="cnm">Azul Noche</span><span class="chx">#191970</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="64"><span class="csw"
+                        style="background:#89CFF0"></span><span class="cst"><i style="background:#e8f6fc"></i><i
+                            style="background:#bbe4f6"></i><i style="background:#8ed1f0"></i><i
+                            style="background:#61bfea"></i><i style="background:#34ade5"></i><i
+                            style="background:#1a93cb"></i><i style="background:#15729e"></i><i
+                            style="background:#0f5271"></i><i style="background:#093144"></i></span><span
+                        class="cin"><span class="cnm">Azul Bebe</span><span class="chx">#89CFF0</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="65"><span class="csw"
+                        style="background:#1560BD"></span><span class="cst"><i style="background:#e8f1fc"></i><i
+                            style="background:#bad6f7"></i><i style="background:#8cbaf2"></i><i
+                            style="background:#5e9fed"></i><i style="background:#3083e8"></i><i
+                            style="background:#176acf"></i><i style="background:#1252a1"></i><i
+                            style="background:#0d3b73"></i><i style="background:#082345"></i></span><span
+                        class="cin"><span class="cnm">Azul Denim</span><span class="chx">#1560BD</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="66"><span class="csw"
+                        style="background:#1C39BB"></span><span class="cst"><i style="background:#e9ecfc"></i><i
+                            style="background:#bcc7f5"></i><i style="background:#90a1ee"></i><i
+                            style="background:#647ce8"></i><i style="background:#3756e1"></i><i
+                            style="background:#1e3dc8"></i><i style="background:#172f9b"></i><i
+                            style="background:#11226f"></i><i style="background:#0a1443"></i></span><span
+                        class="cin"><span class="cnm">Azul Persa</span><span class="chx">#1C39BB</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="67"><span class="csw"
+                        style="background:#99C5C4"></span><span class="cst"><i style="background:#eff6f6"></i><i
+                            style="background:#cee3e3"></i><i style="background:#add1d1"></i><i
+                            style="background:#8dbfbe"></i><i style="background:#6cacab"></i><i
+                            style="background:#539392"></i><i style="background:#407271"></i><i
+                            style="background:#2e5251"></i><i style="background:#1c3131"></i></span><span
+                        class="cin"><span class="cnm">Azul Hielo</span><span class="chx">#99C5C4</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Cianes">
+            <div class="stitle">Cianes <span class="scnt">8</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="68"><span class="csw"
+                        style="background:#00CCCC"></span><span class="cst"><i style="background:#e5ffff"></i><i
+                            style="background:#b2ffff"></i><i style="background:#80ffff"></i><i
+                            style="background:#4dffff"></i><i style="background:#1affff"></i><i
+                            style="background:#00e6e6"></i><i style="background:#00b2b2"></i><i
+                            style="background:#008080"></i><i style="background:#004c4c"></i></span><span
+                        class="cin"><span class="cnm">Cian</span><span class="chx">#00CCCC</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="69"><span class="csw"
+                        style="background:#40E0D0"></span><span class="cst"><i style="background:#e9fbfa"></i><i
+                            style="background:#bdf4ef"></i><i style="background:#91ede4"></i><i
+                            style="background:#65e6d9"></i><i style="background:#3adfce"></i><i
+                            style="background:#20c5b5"></i><i style="background:#199a8d"></i><i
+                            style="background:#126e64"></i><i style="background:#0b423c"></i></span><span
+                        class="cin"><span class="cnm">Turquesa</span><span class="chx">#40E0D0</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="70"><span class="csw"
+                        style="background:#7FFFD4"></span><span class="cst"><i style="background:#e5fff6"></i><i
+                            style="background:#b2ffe5"></i><i style="background:#80ffd4"></i><i
+                            style="background:#4dffc3"></i><i style="background:#1affb2"></i><i
+                            style="background:#00e699"></i><i style="background:#00b277"></i><i
+                            style="background:#008055"></i><i style="background:#004c33"></i></span><span
+                        class="cin"><span class="cnm">Aguamarina</span><span class="chx">#7FFFD4</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="71"><span class="csw"
+                        style="background:#008080"></span><span class="cst"><i style="background:#e5ffff"></i><i
+                            style="background:#b2ffff"></i><i style="background:#80ffff"></i><i
+                            style="background:#4dffff"></i><i style="background:#1affff"></i><i
+                            style="background:#00e6e6"></i><i style="background:#00b2b2"></i><i
+                            style="background:#008080"></i><i style="background:#004c4c"></i></span><span
+                        class="cin"><span class="cnm">Teal</span><span class="chx">#008080</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="72"><span class="csw"
+                        style="background:#00827F"></span><span class="cst"><i style="background:#e5ffff"></i><i
+                            style="background:#b2fffe"></i><i style="background:#80fffd"></i><i
+                            style="background:#4dfffc"></i><i style="background:#1afffb"></i><i
+                            style="background:#00e6e2"></i><i style="background:#00b2b0"></i><i
+                            style="background:#00807d"></i><i style="background:#004c4b"></i></span><span
+                        class="cin"><span class="cnm">Verde Agua</span><span class="chx">#00827F</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="73"><span class="csw"
+                        style="background:#99EEFF"></span><span class="cst"><i style="background:#e5fbff"></i><i
+                            style="background:#b2f2ff"></i><i style="background:#80eaff"></i><i
+                            style="background:#4de1ff"></i><i style="background:#1ad9ff"></i><i
+                            style="background:#00bfe6"></i><i style="background:#0095b2"></i><i
+                            style="background:#006a80"></i><i style="background:#00404c"></i></span><span
+                        class="cin"><span class="cnm">Celeste</span><span class="chx">#99EEFF</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="74"><span class="csw"
+                        style="background:#006994"></span><span class="cst"><i style="background:#e5f8ff"></i><i
+                            style="background:#b2e9ff"></i><i style="background:#80dbff"></i><i
+                            style="background:#4dccff"></i><i style="background:#1abeff"></i><i
+                            style="background:#00a4e6"></i><i style="background:#0080b2"></i><i
+                            style="background:#005b80"></i><i style="background:#00374c"></i></span><span
+                        class="cin"><span class="cnm">Azul Caribe</span><span class="chx">#006994</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="75"><span class="csw"
+                        style="background:#ACE5EE"></span><span class="cst"><i style="background:#eaf8fb"></i><i
+                            style="background:#c0ebf2"></i><i style="background:#95dee9"></i><i
+                            style="background:#6bd1e1"></i><i style="background:#41c4d8"></i><i
+                            style="background:#27aabe"></i><i style="background:#1e8494"></i><i
+                            style="background:#165f6a"></i><i style="background:#0d393f"></i></span><span
+                        class="cin"><span class="cnm">Azul Laguna</span><span class="chx">#ACE5EE</span></span></a>
+            </div>
+        </div>
+        <div class="sec" data-cat="Violetas">
+            <div class="stitle">Violetas <span class="scnt">10</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="76"><span class="csw"
+                        style="background:#EE82EE"></span><span class="cst"><i style="background:#fce9fc"></i><i
+                            style="background:#f6bcf6"></i><i style="background:#f08ff0"></i><i
+                            style="background:#ea62ea"></i><i style="background:#e335e3"></i><i
+                            style="background:#ca1cca"></i><i style="background:#9d159d"></i><i
+                            style="background:#700f70"></i><i style="background:#430943"></i></span><span
+                        class="cin"><span class="cnm">Violeta</span><span class="chx">#EE82EE</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="77"><span class="csw"
+                        style="background:#800080"></span><span class="cst"><i style="background:#ffe5ff"></i><i
+                            style="background:#ffb2ff"></i><i style="background:#ff80ff"></i><i
+                            style="background:#ff4dff"></i><i style="background:#ff1aff"></i><i
+                            style="background:#e600e6"></i><i style="background:#b200b2"></i><i
+                            style="background:#800080"></i><i style="background:#4c004c"></i></span><span
+                        class="cin"><span class="cnm">Purpura</span><span class="chx">#800080</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="78"><span class="csw"
+                        style="background:#C8A2C8"></span><span class="cst"><i style="background:#f6eff6"></i><i
+                            style="background:#e3cfe3"></i><i style="background:#d0afd0"></i><i
+                            style="background:#bd8fbd"></i><i style="background:#aa6eaa"></i><i
+                            style="background:#915591"></i><i style="background:#704270"></i><i
+                            style="background:#502f50"></i><i style="background:#301c30"></i></span><span
+                        class="cin"><span class="cnm">Lavanda</span><span class="chx">#C8A2C8</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="79"><span class="csw"
+                        style="background:#E0B0FF"></span><span class="cst"><i style="background:#f5e5ff"></i><i
+                            style="background:#e0b2ff"></i><i style="background:#cc80ff"></i><i
+                            style="background:#b84dff"></i><i style="background:#a31aff"></i><i
+                            style="background:#8a00e6"></i><i style="background:#6b00b2"></i><i
+                            style="background:#4c0080"></i><i style="background:#2e004c"></i></span><span
+                        class="cin"><span class="cnm">Malva</span><span class="chx">#E0B0FF</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="80"><span class="csw"
+                        style="background:#9966CC"></span><span class="cst"><i style="background:#f2ecf9"></i><i
+                            style="background:#d9c6ec"></i><i style="background:#bf9fdf"></i><i
+                            style="background:#a679d2"></i><i style="background:#8c53c6"></i><i
+                            style="background:#7339ac"></i><i style="background:#592d86"></i><i
+                            style="background:#402060"></i><i style="background:#261339"></i></span><span
+                        class="cin"><span class="cnm">Lila</span><span class="chx">#9966CC</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="81"><span class="csw"
+                        style="background:#7B3F8D"></span><span class="cst"><i style="background:#f5edf7"></i><i
+                            style="background:#e1cae7"></i><i style="background:#cca7d7"></i><i
+                            style="background:#b884c8"></i><i style="background:#a461b8"></i><i
+                            style="background:#8a479e"></i><i style="background:#6b377b"></i><i
+                            style="background:#4d2858"></i><i style="background:#2e1835"></i></span><span
+                        class="cin"><span class="cnm">Amatista</span><span class="chx">#7B3F8D</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="82"><span class="csw"
+                        style="background:#7F00FF"></span><span class="cst"><i style="background:#f2e5ff"></i><i
+                            style="background:#d9b2ff"></i><i style="background:#bf80ff"></i><i
+                            style="background:#a64dff"></i><i style="background:#8c1aff"></i><i
+                            style="background:#7300e6"></i><i style="background:#5900b2"></i><i
+                            style="background:#400080"></i><i style="background:#26004c"></i></span><span
+                        class="cin"><span class="cnm">Violeta Oscuro</span><span class="chx">#7F00FF</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="83"><span class="csw"
+                        style="background:#DDA0DD"></span><span class="cst"><i style="background:#f8ecf8"></i><i
+                            style="background:#ebc7eb"></i><i style="background:#dda1dd"></i><i
+                            style="background:#d07cd0"></i><i style="background:#c256c2"></i><i
+                            style="background:#a93da9"></i><i style="background:#832f83"></i><i
+                            style="background:#5e225e"></i><i style="background:#381438"></i></span><span
+                        class="cin"><span class="cnm">Ciruela</span><span class="chx">#DDA0DD</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="84"><span class="csw"
+                        style="background:#DF73FF"></span><span class="cst"><i style="background:#f9e5ff"></i><i
+                            style="background:#edb2ff"></i><i style="background:#e180ff"></i><i
+                            style="background:#d54dff"></i><i style="background:#c91aff"></i><i
+                            style="background:#b000e6"></i><i style="background:#8900b2"></i><i
+                            style="background:#620080"></i><i style="background:#3b004c"></i></span><span
+                        class="cin"><span class="cnm">Heliotropo</span><span class="chx">#DF73FF</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="85"><span class="csw"
+                        style="background:#4B0082"></span><span class="cst"><i style="background:#f4e5ff"></i><i
+                            style="background:#dfb2ff"></i><i style="background:#ca80ff"></i><i
+                            style="background:#b54dff"></i><i style="background:#9f1aff"></i><i
+                            style="background:#8600e6"></i><i style="background:#6800b2"></i><i
+                            style="background:#4a0080"></i><i style="background:#2d004c"></i></span><span
+                        class="cin"><span class="cnm">Indigo</span><span class="chx">#4B0082</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Marrones">
+            <div class="stitle">Marrones <span class="scnt">12</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="86"><span class="csw"
+                        style="background:#A52A2A"></span><span class="cst"><i style="background:#faebeb"></i><i
+                            style="background:#efc2c2"></i><i style="background:#e59a9a"></i><i
+                            style="background:#da7171"></i><i style="background:#d04949"></i><i
+                            style="background:#b62f2f"></i><i style="background:#8e2525"></i><i
+                            style="background:#651a1a"></i><i style="background:#3d1010"></i></span><span
+                        class="cin"><span class="cnm">Marron</span><span class="chx">#A52A2A</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="87"><span class="csw"
+                        style="background:#6F4E37"></span><span class="cst"><i style="background:#f7f2ee"></i><i
+                            style="background:#e6d7cc"></i><i style="background:#d5bcaa"></i><i
+                            style="background:#c4a187"></i><i style="background:#b38665"></i><i
+                            style="background:#9a6c4c"></i><i style="background:#78543b"></i><i
+                            style="background:#553c2a"></i><i style="background:#332419"></i></span><span
+                        class="cin"><span class="cnm">Cafe</span><span class="chx">#6F4E37</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="88"><span class="csw"
+                        style="background:#7B3F00"></span><span class="cst"><i style="background:#fff3e5"></i><i
+                            style="background:#ffdab2"></i><i style="background:#ffc180"></i><i
+                            style="background:#ffa94d"></i><i style="background:#ff901a"></i><i
+                            style="background:#e67700"></i><i style="background:#b25c00"></i><i
+                            style="background:#804200"></i><i style="background:#4c2800"></i></span><span
+                        class="cin"><span class="cnm">Chocolate</span><span class="chx">#7B3F00</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="89"><span class="csw"
+                        style="background:#CC5500"></span><span class="cst"><i style="background:#fff0e5"></i><i
+                            style="background:#ffd2b2"></i><i style="background:#ffb580"></i><i
+                            style="background:#ff974d"></i><i style="background:#ff791a"></i><i
+                            style="background:#e66000"></i><i style="background:#b24a00"></i><i
+                            style="background:#803500"></i><i style="background:#4c2000"></i></span><span
+                        class="cin"><span class="cnm">Terracota</span><span class="chx">#CC5500</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="90"><span class="csw"
+                        style="background:#B87333"></span><span class="cst"><i style="background:#faf2eb"></i><i
+                            style="background:#efd8c3"></i><i style="background:#e4be9b"></i><i
+                            style="background:#d9a473"></i><i style="background:#ce8a4b"></i><i
+                            style="background:#b47131"></i><i style="background:#8c5826"></i><i
+                            style="background:#643f1b"></i><i style="background:#3c2610"></i></span><span
+                        class="cin"><span class="cnm">Cobre</span><span class="chx">#B87333</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="91"><span class="csw"
+                        style="background:#CC7722"></span><span class="cst"><i style="background:#fbf2e9"></i><i
+                            style="background:#f4d9be"></i><i style="background:#edbf92"></i><i
+                            style="background:#e5a666"></i><i style="background:#de8c3b"></i><i
+                            style="background:#c47321"></i><i style="background:#99591a"></i><i
+                            style="background:#6d4012"></i><i style="background:#41260b"></i></span><span
+                        class="cin"><span class="cnm">Ocre</span><span class="chx">#CC7722</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="92"><span class="csw"
+                        style="background:#A0522D"></span><span class="cst"><i style="background:#f9f0eb"></i><i
+                            style="background:#eed1c3"></i><i style="background:#e3b29c"></i><i
+                            style="background:#d89374"></i><i style="background:#cd754c"></i><i
+                            style="background:#b35b32"></i><i style="background:#8b4727"></i><i
+                            style="background:#63331c"></i><i style="background:#3c1e11"></i></span><span
+                        class="cin"><span class="cnm">Siena</span><span class="chx">#A0522D</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="93"><span class="csw"
+                        style="background:#D2B48C"></span><span class="cst"><i style="background:#f8f3ed"></i><i
+                            style="background:#eadbc8"></i><i style="background:#dbc3a3"></i><i
+                            style="background:#cdab7e"></i><i style="background:#bf935a"></i><i
+                            style="background:#a57940"></i><i style="background:#815e32"></i><i
+                            style="background:#5c4324"></i><i style="background:#372815"></i></span><span
+                        class="cin"><span class="cnm">Tostado</span><span class="chx">#D2B48C</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="94"><span class="csw"
+                        style="background:#C68642"></span><span class="cst"><i style="background:#f9f2eb"></i><i
+                            style="background:#edd9c4"></i><i style="background:#e2c09d"></i><i
+                            style="background:#d6a776"></i><i style="background:#ca8e4e"></i><i
+                            style="background:#b17535"></i><i style="background:#895b29"></i><i
+                            style="background:#62411d"></i><i style="background:#3b2712"></i></span><span
+                        class="cin"><span class="cnm">Caramelo</span><span class="chx">#C68642</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="95"><span class="csw"
+                        style="background:#795548"></span><span class="cst"><i style="background:#f5f1ef"></i><i
+                            style="background:#e2d4cf"></i><i style="background:#cfb8af"></i><i
+                            style="background:#bc9b8f"></i><i style="background:#a97f70"></i><i
+                            style="background:#8f6556"></i><i style="background:#704f43"></i><i
+                            style="background:#503830"></i><i style="background:#30221d"></i></span><span
+                        class="cin"><span class="cnm">Avellana</span><span class="chx">#795548</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="96"><span class="csw"
+                        style="background:#8D4E33"></span><span class="cst"><i style="background:#f8f0ec"></i><i
+                            style="background:#ebd2c7"></i><i style="background:#ddb3a1"></i><i
+                            style="background:#d0957c"></i><i style="background:#c27756"></i><i
+                            style="background:#a95d3d"></i><i style="background:#83482f"></i><i
+                            style="background:#5e3422"></i><i style="background:#381f14"></i></span><span
+                        class="cin"><span class="cnm">Castano</span><span class="chx">#8D4E33</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="97"><span class="csw"
+                        style="background:#9B7A41"></span><span class="cst"><i style="background:#f7f4ed"></i><i
+                            style="background:#e8ddc9"></i><i style="background:#d9c6a5"></i><i
+                            style="background:#cab081"></i><i style="background:#bb995d"></i><i
+                            style="background:#a27f44"></i><i style="background:#7e6335"></i><i
+                            style="background:#5a4726"></i><i style="background:#362a17"></i></span><span
+                        class="cin"><span class="cnm">Canela</span><span class="chx">#9B7A41</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Blancos">
+            <div class="stitle">Blancos <span class="scnt">8</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="98"><span class="csw"
+                        style="background:#FFFFFF"></span><span class="cst"><i style="background:#f2f2f2"></i><i
+                            style="background:#d9d9d9"></i><i style="background:#bfbfbf"></i><i
+                            style="background:#a6a6a6"></i><i style="background:#8c8c8c"></i><i
+                            style="background:#737373"></i><i style="background:#595959"></i><i
+                            style="background:#404040"></i><i style="background:#262626"></i></span><span
+                        class="cin"><span class="cnm">Blanco</span><span class="chx">#FFFFFF</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="99"><span class="csw"
+                        style="background:#FFFAFA"></span><span class="cst"><i style="background:#ffe5e5"></i><i
+                            style="background:#ffb2b2"></i><i style="background:#ff8080"></i><i
+                            style="background:#ff4d4d"></i><i style="background:#ff1a1a"></i><i
+                            style="background:#e60000"></i><i style="background:#b20000"></i><i
+                            style="background:#800000"></i><i style="background:#4c0000"></i></span><span
+                        class="cin"><span class="cnm">Blanco Nieve</span><span class="chx">#FFFAFA</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="100"><span class="csw"
+                        style="background:#FFFFF0"></span><span class="cst"><i style="background:#ffffe5"></i><i
+                            style="background:#ffffb2"></i><i style="background:#ffff80"></i><i
+                            style="background:#ffff4d"></i><i style="background:#ffff1a"></i><i
+                            style="background:#e6e600"></i><i style="background:#b2b200"></i><i
+                            style="background:#808000"></i><i style="background:#4c4c00"></i></span><span
+                        class="cin"><span class="cnm">Marfil</span><span class="chx">#FFFFF0</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="101"><span class="csw"
+                        style="background:#F2F0E6"></span><span class="cst"><i style="background:#f6f5ee"></i><i
+                            style="background:#e5e1cd"></i><i style="background:#d4cdab"></i><i
+                            style="background:#c2b989"></i><i style="background:#b1a568"></i><i
+                            style="background:#978b4e"></i><i style="background:#766c3d"></i><i
+                            style="background:#544d2b"></i><i style="background:#322e1a"></i></span><span
+                        class="cin"><span class="cnm">Alabastro</span><span class="chx">#F2F0E6</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="102"><span class="csw"
+                        style="background:#F8F0E3"></span><span class="cst"><i style="background:#faf4eb"></i><i
+                            style="background:#f0dec2"></i><i style="background:#e6c899"></i><i
+                            style="background:#dbb270"></i><i style="background:#d19c47"></i><i
+                            style="background:#b8832e"></i><i style="background:#8f6624"></i><i
+                            style="background:#66491a"></i><i style="background:#3d2c0f"></i></span><span
+                        class="cin"><span class="cnm">Blanco Perla</span><span class="chx">#F8F0E3</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="103"><span class="csw"
+                        style="background:#FAF0E6"></span><span class="cst"><i style="background:#fbf2ea"></i><i
+                            style="background:#f2d9bf"></i><i style="background:#eabf95"></i><i
+                            style="background:#e2a66a"></i><i style="background:#d98c3f"></i><i
+                            style="background:#c07326"></i><i style="background:#95591d"></i><i
+                            style="background:#6a4015"></i><i style="background:#40260d"></i></span><span
+                        class="cin"><span class="cnm">Lino</span><span class="chx">#FAF0E6</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="104"><span class="csw"
+                        style="background:#F9F6EE"></span><span class="cst"><i style="background:#f8f5ec"></i><i
+                            style="background:#ebe1c6"></i><i style="background:#decea1"></i><i
+                            style="background:#d1ba7b"></i><i style="background:#c3a655"></i><i
+                            style="background:#aa8c3c"></i><i style="background:#846d2e"></i><i
+                            style="background:#5e4e21"></i><i style="background:#392f14"></i></span><span
+                        class="cin"><span class="cnm">Hueso</span><span class="chx">#F9F6EE</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="105"><span class="csw"
+                        style="background:#FDEEF4"></span><span class="cst"><i style="background:#fce8f0"></i><i
+                            style="background:#f7bbd3"></i><i style="background:#f28db5"></i><i
+                            style="background:#ec5f98"></i><i style="background:#e7327a"></i><i
+                            style="background:#cd1861"></i><i style="background:#a0134b"></i><i
+                            style="background:#720d36"></i><i style="background:#440820"></i></span><span
+                        class="cin"><span class="cnm">Nacar</span><span class="chx">#FDEEF4</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Grises">
+            <div class="stitle">Grises <span class="scnt">10</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="106"><span class="csw"
+                        style="background:#808080"></span><span class="cst"><i style="background:#f2f2f2"></i><i
+                            style="background:#d9d9d9"></i><i style="background:#bfbfbf"></i><i
+                            style="background:#a6a6a6"></i><i style="background:#8c8c8c"></i><i
+                            style="background:#737373"></i><i style="background:#595959"></i><i
+                            style="background:#404040"></i><i style="background:#262626"></i></span><span
+                        class="cin"><span class="cnm">Gris</span><span class="chx">#808080</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="107"><span class="csw"
+                        style="background:#D3D3D3"></span><span class="cst"><i style="background:#f2f2f2"></i><i
+                            style="background:#d9d9d9"></i><i style="background:#bfbfbf"></i><i
+                            style="background:#a6a6a6"></i><i style="background:#8c8c8c"></i><i
+                            style="background:#737373"></i><i style="background:#595959"></i><i
+                            style="background:#404040"></i><i style="background:#262626"></i></span><span
+                        class="cin"><span class="cnm">Gris Claro</span><span class="chx">#D3D3D3</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="108"><span class="csw"
+                        style="background:#404040"></span><span class="cst"><i style="background:#f2f2f2"></i><i
+                            style="background:#d9d9d9"></i><i style="background:#bfbfbf"></i><i
+                            style="background:#a6a6a6"></i><i style="background:#8c8c8c"></i><i
+                            style="background:#737373"></i><i style="background:#595959"></i><i
+                            style="background:#404040"></i><i style="background:#262626"></i></span><span
+                        class="cin"><span class="cnm">Gris Oscuro</span><span class="chx">#404040</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="109"><span class="csw"
+                        style="background:#C0C0C0"></span><span class="cst"><i style="background:#f2f2f2"></i><i
+                            style="background:#d9d9d9"></i><i style="background:#bfbfbf"></i><i
+                            style="background:#a6a6a6"></i><i style="background:#8c8c8c"></i><i
+                            style="background:#737373"></i><i style="background:#595959"></i><i
+                            style="background:#404040"></i><i style="background:#262626"></i></span><span
+                        class="cin"><span class="cnm">Plata</span><span class="chx">#C0C0C0</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="110"><span class="csw"
+                        style="background:#708090"></span><span class="cst"><i style="background:#f1f2f4"></i><i
+                            style="background:#d4d9de"></i><i style="background:#b7bfc8"></i><i
+                            style="background:#9aa6b1"></i><i style="background:#7d8c9b"></i><i
+                            style="background:#647382"></i><i style="background:#4e5965"></i><i
+                            style="background:#374048"></i><i style="background:#21262b"></i></span><span
+                        class="cin"><span class="cnm">Gris Pizarra</span><span class="chx">#708090</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="111"><span class="csw"
+                        style="background:#71797E"></span><span class="cst"><i style="background:#f2f2f3"></i><i
+                            style="background:#d7d9db"></i><i style="background:#bcc0c2"></i><i
+                            style="background:#a1a7aa"></i><i style="background:#878e92"></i><i
+                            style="background:#6d7478"></i><i style="background:#555a5e"></i><i
+                            style="background:#3d4043"></i><i style="background:#242728"></i></span><span
+                        class="cin"><span class="cnm">Gris Acero</span><span class="chx">#71797E</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="112"><span class="csw"
+                        style="background:#7393B3"></span><span class="cst"><i style="background:#eef2f6"></i><i
+                            style="background:#cdd9e4"></i><i style="background:#acbfd2"></i><i
+                            style="background:#8ba6c1"></i><i style="background:#6a8caf"></i><i
+                            style="background:#507395"></i><i style="background:#3e5974"></i><i
+                            style="background:#2d4053"></i><i style="background:#1b2632"></i></span><span
+                        class="cin"><span class="cnm">Gris Azulado</span><span class="chx">#7393B3</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="113"><span class="csw"
+                        style="background:#A8A9AD"></span><span class="cst"><i style="background:#f2f2f3"></i><i
+                            style="background:#d8d8da"></i><i style="background:#bdbec1"></i><i
+                            style="background:#a3a4a8"></i><i style="background:#898a90"></i><i
+                            style="background:#6f7176"></i><i style="background:#57585c"></i><i
+                            style="background:#3e3f42"></i><i style="background:#252627"></i></span><span
+                        class="cin"><span class="cnm">Gris Neutro</span><span class="chx">#A8A9AD</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="114"><span class="csw"
+                        style="background:#E8E8E8"></span><span class="cst"><i style="background:#f2f2f2"></i><i
+                            style="background:#d9d9d9"></i><i style="background:#bfbfbf"></i><i
+                            style="background:#a6a6a6"></i><i style="background:#8c8c8c"></i><i
+                            style="background:#737373"></i><i style="background:#595959"></i><i
+                            style="background:#404040"></i><i style="background:#262626"></i></span><span
+                        class="cin"><span class="cnm">Gris Perla</span><span class="chx">#E8E8E8</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="115"><span class="csw"
+                        style="background:#36454F"></span><span class="cst"><i style="background:#f0f3f5"></i><i
+                            style="background:#d1dae0"></i><i style="background:#b3c2cb"></i><i
+                            style="background:#95a9b7"></i><i style="background:#7691a2"></i><i
+                            style="background:#5d7789"></i><i style="background:#485d6a"></i><i
+                            style="background:#34424c"></i><i style="background:#1f282e"></i></span><span
+                        class="cin"><span class="cnm">Carbon</span><span class="chx">#36454F</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Negros">
+            <div class="stitle">Negros <span class="scnt">4</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="116"><span class="csw"
+                        style="background:#222222"></span><span class="cst"><i style="background:#f2f2f2"></i><i
+                            style="background:#d9d9d9"></i><i style="background:#bfbfbf"></i><i
+                            style="background:#a6a6a6"></i><i style="background:#8c8c8c"></i><i
+                            style="background:#737373"></i><i style="background:#595959"></i><i
+                            style="background:#404040"></i><i style="background:#262626"></i></span><span
+                        class="cin"><span class="cnm">Negro</span><span class="chx">#222222</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="117"><span class="csw"
+                        style="background:#3C3C3C"></span><span class="cst"><i style="background:#f2f2f2"></i><i
+                            style="background:#d9d9d9"></i><i style="background:#bfbfbf"></i><i
+                            style="background:#a6a6a6"></i><i style="background:#8c8c8c"></i><i
+                            style="background:#737373"></i><i style="background:#595959"></i><i
+                            style="background:#404040"></i><i style="background:#262626"></i></span><span
+                        class="cin"><span class="cnm">Negro Ebano</span><span class="chx">#3C3C3C</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="118"><span class="csw"
+                        style="background:#343434"></span><span class="cst"><i style="background:#f2f2f2"></i><i
+                            style="background:#d9d9d9"></i><i style="background:#bfbfbf"></i><i
+                            style="background:#a6a6a6"></i><i style="background:#8c8c8c"></i><i
+                            style="background:#737373"></i><i style="background:#595959"></i><i
+                            style="background:#404040"></i><i style="background:#262626"></i></span><span
+                        class="cin"><span class="cnm">Negro Jet</span><span class="chx">#343434</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="119"><span class="csw"
+                        style="background:#2C2C2C"></span><span class="cst"><i style="background:#f2f2f2"></i><i
+                            style="background:#d9d9d9"></i><i style="background:#bfbfbf"></i><i
+                            style="background:#a6a6a6"></i><i style="background:#8c8c8c"></i><i
+                            style="background:#737373"></i><i style="background:#595959"></i><i
+                            style="background:#404040"></i><i style="background:#262626"></i></span><span
+                        class="cin"><span class="cnm">Negro Grafito</span><span class="chx">#2C2C2C</span></span></a>
+            </div>
+        </div>
+        <div class="sec" data-cat="Especiales">
+            <div class="stitle">Especiales <span class="scnt">8</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="120"><span class="csw"
+                        style="background:#CD7F32"></span><span class="cst"><i style="background:#faf2ea"></i><i
+                            style="background:#f0d9c1"></i><i style="background:#e6bf98"></i><i
+                            style="background:#dca66f"></i><i style="background:#d28c46"></i><i
+                            style="background:#b9732d"></i><i style="background:#905923"></i><i
+                            style="background:#674019"></i><i style="background:#3e260f"></i></span><span
+                        class="cin"><span class="cnm">Bronce</span><span class="chx">#CD7F32</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="121"><span class="csw"
+                        style="background:#B76E79"></span><span class="cst"><i style="background:#f7eeef"></i><i
+                            style="background:#e6ccd0"></i><i style="background:#d5aab0"></i><i
+                            style="background:#c48791"></i><i style="background:#b36571"></i><i
+                            style="background:#9a4c57"></i><i style="background:#783b44"></i><i
+                            style="background:#552a31"></i><i style="background:#33191d"></i></span><span
+                        class="cin"><span class="cnm">Oro Rosa</span><span class="chx">#B76E79</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="122"><span class="csw"
+                        style="background:#FFC87C"></span><span class="cst"><i style="background:#fff4e5"></i><i
+                            style="background:#ffdfb2"></i><i style="background:#ffca80"></i><i
+                            style="background:#ffb54d"></i><i style="background:#ff9f1a"></i><i
+                            style="background:#e68600"></i><i style="background:#b26800"></i><i
+                            style="background:#804a00"></i><i style="background:#4c2d00"></i></span><span
+                        class="cin"><span class="cnm">Topacio</span><span class="chx">#FFC87C</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="123"><span class="csw"
+                        style="background:#9B111E"></span><span class="cst"><i style="background:#fce8ea"></i><i
+                            style="background:#f7bac0"></i><i style="background:#f28c96"></i><i
+                            style="background:#ed5e6d"></i><i style="background:#e83043"></i><i
+                            style="background:#cf1729"></i><i style="background:#a11220"></i><i
+                            style="background:#730d17"></i><i style="background:#45080e"></i></span><span
+                        class="cin"><span class="cnm">Rubi</span><span class="chx">#9B111E</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="124"><span class="csw"
+                        style="background:#0F52BA"></span><span class="cst"><i style="background:#e7f0fd"></i><i
+                            style="background:#b8d2f9"></i><i style="background:#89b4f5"></i><i
+                            style="background:#5a97f2"></i><i style="background:#2b79ee"></i><i
+                            style="background:#115fd4"></i><i style="background:#0d4aa5"></i><i
+                            style="background:#0a3576"></i><i style="background:#062047"></i></span><span
+                        class="cin"><span class="cnm">Zafiro</span><span class="chx">#0F52BA</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="125"><span class="csw"
+                        style="background:#E5E4E2"></span><span class="cst"><i style="background:#f3f2f2"></i><i
+                            style="background:#dbd9d7"></i><i style="background:#c2c0bc"></i><i
+                            style="background:#aaa7a1"></i><i style="background:#928e87"></i><i
+                            style="background:#78756d"></i><i style="background:#5e5b55"></i><i
+                            style="background:#43413d"></i><i style="background:#282724"></i></span><span
+                        class="cin"><span class="cnm">Platino</span><span class="chx">#E5E4E2</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="126"><span class="csw"
+                        style="background:#F0EAD6"></span><span class="cst"><i style="background:#f8f5ec"></i><i
+                            style="background:#eae2c7"></i><i style="background:#ddcfa2"></i><i
+                            style="background:#cfbc7d"></i><i style="background:#c1a857"></i><i
+                            style="background:#a88f3e"></i><i style="background:#826f30"></i><i
+                            style="background:#5d4f22"></i><i style="background:#383015"></i></span><span
+                        class="cin"><span class="cnm">Perla</span><span class="chx">#F0EAD6</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="127"><span class="csw"
+                        style="background:#FFBF00"></span><span class="cst"><i style="background:#fff9e5"></i><i
+                            style="background:#ffecb2"></i><i style="background:#ffdf80"></i><i
+                            style="background:#ffd24d"></i><i style="background:#ffc61a"></i><i
+                            style="background:#e6ac00"></i><i style="background:#b28600"></i><i
+                            style="background:#806000"></i><i style="background:#4c3900"></i></span><span
+                        class="cin"><span class="cnm">Ambar Dorado</span><span class="chx">#FFBF00</span></span></a>
+            </div>
+        </div>
+        <div class="sec" data-cat="Pasteles">
+            <div class="stitle">Pasteles <span class="scnt">10</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="128"><span class="csw"
+                        style="background:#FFD1DC"></span><span class="cst"><i style="background:#ffe5eb"></i><i
+                            style="background:#ffb2c4"></i><i style="background:#ff809d"></i><i
+                            style="background:#ff4d76"></i><i style="background:#ff1a4f"></i><i
+                            style="background:#e60036"></i><i style="background:#b2002a"></i><i
+                            style="background:#80001e"></i><i style="background:#4c0012"></i></span><span
+                        class="cin"><span class="cnm">Pastel Rosa</span><span class="chx">#FFD1DC</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="129"><span class="csw"
+                        style="background:#AEC6CF"></span><span class="cst"><i style="background:#eff4f6"></i><i
+                            style="background:#cfdde3"></i><i style="background:#afc7d0"></i><i
+                            style="background:#8fb1bd"></i><i style="background:#6e9aaa"></i><i
+                            style="background:#558191"></i><i style="background:#426470"></i><i
+                            style="background:#2f4750"></i><i style="background:#1c2b30"></i></span><span
+                        class="cin"><span class="cnm">Pastel Azul</span><span class="chx">#AEC6CF</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="130"><span class="csw"
+                        style="background:#77DD77"></span><span class="cst"><i style="background:#ebfaeb"></i><i
+                            style="background:#c2f0c2"></i><i style="background:#99e699"></i><i
+                            style="background:#70db70"></i><i style="background:#47d147"></i><i
+                            style="background:#2eb82e"></i><i style="background:#248f24"></i><i
+                            style="background:#1a661a"></i><i style="background:#0f3d0f"></i></span><span
+                        class="cin"><span class="cnm">Pastel Verde</span><span class="chx">#77DD77</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="131"><span class="csw"
+                        style="background:#B39EB5"></span><span class="cst"><i style="background:#f4f1f4"></i><i
+                            style="background:#ddd4de"></i><i style="background:#c6b7c8"></i><i
+                            style="background:#af9ab1"></i><i style="background:#997d9b"></i><i
+                            style="background:#7f6482"></i><i style="background:#634e65"></i><i
+                            style="background:#473748"></i><i style="background:#2a212b"></i></span><span
+                        class="cin"><span class="cnm">Pastel Lila</span><span class="chx">#B39EB5</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="132"><span class="csw"
+                        style="background:#FDFD96"></span><span class="cst"><i style="background:#fefee6"></i><i
+                            style="background:#fdfdb4"></i><i style="background:#fcfc82"></i><i
+                            style="background:#fbfb50"></i><i style="background:#fafa1e"></i><i
+                            style="background:#e1e105"></i><i style="background:#afaf04"></i><i
+                            style="background:#7d7d03"></i><i style="background:#4b4b02"></i></span><span
+                        class="cin"><span class="cnm">Pastel Amarillo</span><span
+                            class="chx">#FDFD96</span></span></a><a href="javascript:void(0)" class="card"
+                    data-i="133"><span class="csw" style="background:#FFCBA4"></span><span class="cst"><i
+                            style="background:#fff1e5"></i><i style="background:#ffd4b2"></i><i
+                            style="background:#ffb780"></i><i style="background:#ff9a4d"></i><i
+                            style="background:#ff7d1a"></i><i style="background:#e66300"></i><i
+                            style="background:#b24d00"></i><i style="background:#803700"></i><i
+                            style="background:#4c2100"></i></span><span class="cin"><span class="cnm">Pastel
+                            Melocoton</span><span class="chx">#FFCBA4</span></span></a><a href="javascript:void(0)"
+                    class="card" data-i="134"><span class="csw" style="background:#98FF98"></span><span class="cst"><i
+                            style="background:#e5ffe5"></i><i style="background:#b2ffb2"></i><i
+                            style="background:#80ff80"></i><i style="background:#4dff4d"></i><i
+                            style="background:#1aff1a"></i><i style="background:#00e600"></i><i
+                            style="background:#00b200"></i><i style="background:#008000"></i><i
+                            style="background:#004c00"></i></span><span class="cin"><span class="cnm">Pastel
+                            Menta</span><span class="chx">#98FF98</span></span></a><a href="javascript:void(0)"
+                    class="card" data-i="135"><span class="csw" style="background:#E6DEFF"></span><span class="cst"><i
+                            style="background:#ece5ff"></i><i style="background:#c6b2ff"></i><i
+                            style="background:#9f80ff"></i><i style="background:#794dff"></i><i
+                            style="background:#531aff"></i><i style="background:#3900e6"></i><i
+                            style="background:#2d00b2"></i><i style="background:#200080"></i><i
+                            style="background:#13004c"></i></span><span class="cin"><span class="cnm">Pastel
+                            Lavanda</span><span class="chx">#E6DEFF</span></span></a><a href="javascript:void(0)"
+                    class="card" data-i="136"><span class="csw" style="background:#FFB7C5"></span><span class="cst"><i
+                            style="background:#ffe5eb"></i><i style="background:#ffb2c2"></i><i
+                            style="background:#ff8099"></i><i style="background:#ff4d70"></i><i
+                            style="background:#ff1a47"></i><i style="background:#e6002e"></i><i
+                            style="background:#b20024"></i><i style="background:#80001a"></i><i
+                            style="background:#4c000f"></i></span><span class="cin"><span class="cnm">Pastel
+                            Coral</span><span class="chx">#FFB7C5</span></span></a><a href="javascript:void(0)"
+                    class="card" data-i="137"><span class="csw" style="background:#CCEFFD"></span><span class="cst"><i
+                            style="background:#e7f7fe"></i><i style="background:#b6e8fc"></i><i
+                            style="background:#85d9fa"></i><i style="background:#54c9f8"></i><i
+                            style="background:#23baf6"></i><i style="background:#09a0dc"></i><i
+                            style="background:#077dab"></i><i style="background:#05597a"></i><i
+                            style="background:#033549"></i></span><span class="cin"><span class="cnm">Pastel
+                            Celeste</span><span class="chx">#CCEFFD</span></span></a></div>
+        </div>
+        <div class="sec" data-cat="Neon">
+            <div class="stitle">Neon <span class="scnt">7</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="138"><span class="csw"
+                        style="background:#39FF14"></span><span class="cst"><i style="background:#e9ffe5"></i><i
+                            style="background:#beffb2"></i><i style="background:#93ff80"></i><i
+                            style="background:#67ff4d"></i><i style="background:#3cff1a"></i><i
+                            style="background:#22e600"></i><i style="background:#1bb200"></i><i
+                            style="background:#138000"></i><i style="background:#0b4c00"></i></span><span
+                        class="cin"><span class="cnm">Neon Verde</span><span class="chx">#39FF14</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="139"><span class="csw"
+                        style="background:#FF6700"></span><span class="cst"><i style="background:#fff0e5"></i><i
+                            style="background:#ffd1b2"></i><i style="background:#ffb380"></i><i
+                            style="background:#ff944d"></i><i style="background:#ff751a"></i><i
+                            style="background:#e65c00"></i><i style="background:#b24700"></i><i
+                            style="background:#803300"></i><i style="background:#4c1f00"></i></span><span
+                        class="cin"><span class="cnm">Neon Naranja</span><span class="chx">#FF6700</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="140"><span class="csw"
+                        style="background:#FF10F0"></span><span class="cst"><i style="background:#ffe5fd"></i><i
+                            style="background:#ffb2fa"></i><i style="background:#ff80f7"></i><i
+                            style="background:#ff4df3"></i><i style="background:#ff1af0"></i><i
+                            style="background:#e600d6"></i><i style="background:#b200a7"></i><i
+                            style="background:#800077"></i><i style="background:#4c0047"></i></span><span
+                        class="cin"><span class="cnm">Neon Rosa</span><span class="chx">#FF10F0</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="141"><span class="csw"
+                        style="background:#DFFF00"></span><span class="cst"><i style="background:#fcffe5"></i><i
+                            style="background:#f5ffb2"></i><i style="background:#eeff80"></i><i
+                            style="background:#e7ff4d"></i><i style="background:#e0ff1a"></i><i
+                            style="background:#c7e600"></i><i style="background:#9bb200"></i><i
+                            style="background:#6e8000"></i><i style="background:#424c00"></i></span><span
+                        class="cin"><span class="cnm">Neon Amarillo</span><span class="chx">#DFFF00</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="142"><span class="csw"
+                        style="background:#FF0800"></span><span class="cst"><i style="background:#ffe6e5"></i><i
+                            style="background:#ffb5b2"></i><i style="background:#ff8480"></i><i
+                            style="background:#ff524d"></i><i style="background:#ff211a"></i><i
+                            style="background:#e60800"></i><i style="background:#b20600"></i><i
+                            style="background:#800400"></i><i style="background:#4c0300"></i></span><span
+                        class="cin"><span class="cnm">Neon Rojo</span><span class="chx">#FF0800</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="143"><span class="csw"
+                        style="background:#00FFEF"></span><span class="cst"><i style="background:#e5fffd"></i><i
+                            style="background:#b2fffa"></i><i style="background:#80fff7"></i><i
+                            style="background:#4dfff3"></i><i style="background:#1afff0"></i><i
+                            style="background:#00e6d6"></i><i style="background:#00b2a7"></i><i
+                            style="background:#008077"></i><i style="background:#004c47"></i></span><span
+                        class="cin"><span class="cnm">Neon Cian</span><span class="chx">#00FFEF</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="144"><span class="csw"
+                        style="background:#BF00FF"></span><span class="cst"><i style="background:#f9e5ff"></i><i
+                            style="background:#ecb2ff"></i><i style="background:#df80ff"></i><i
+                            style="background:#d24dff"></i><i style="background:#c61aff"></i><i
+                            style="background:#ac00e6"></i><i style="background:#8600b2"></i><i
+                            style="background:#600080"></i><i style="background:#39004c"></i></span><span
+                        class="cin"><span class="cnm">Neon Morado</span><span class="chx">#BF00FF</span></span></a>
+            </div>
+        </div>
+        <div class="sec" data-cat="Naturaleza">
+            <div class="stitle">Naturaleza <span class="scnt">10</span></div>
+            <div class="gr"><a href="javascript:void(0)" class="card" data-i="145"><span class="csw"
+                        style="background:#87CEEB"></span><span class="cst"><i style="background:#e9f6fb"></i><i
+                            style="background:#bee5f4"></i><i style="background:#92d3ed"></i><i
+                            style="background:#66c1e5"></i><i style="background:#3bb0de"></i><i
+                            style="background:#2196c4"></i><i style="background:#1a7599"></i><i
+                            style="background:#12536d"></i><i style="background:#0b3241"></i></span><span
+                        class="cin"><span class="cnm">Cielo</span><span class="chx">#87CEEB</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="146"><span class="csw"
+                        style="background:#006994"></span><span class="cst"><i style="background:#e5f8ff"></i><i
+                            style="background:#b2e9ff"></i><i style="background:#80dbff"></i><i
+                            style="background:#4dccff"></i><i style="background:#1abeff"></i><i
+                            style="background:#00a4e6"></i><i style="background:#0080b2"></i><i
+                            style="background:#005b80"></i><i style="background:#00374c"></i></span><span
+                        class="cin"><span class="cnm">Mar</span><span class="chx">#006994</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="147"><span class="csw"
+                        style="background:#C2B280"></span><span class="cst"><i style="background:#f7f4ee"></i><i
+                            style="background:#e6dfcb"></i><i style="background:#d6caa9"></i><i
+                            style="background:#c5b587"></i><i style="background:#b4a064"></i><i
+                            style="background:#9b874b"></i><i style="background:#78693a"></i><i
+                            style="background:#564b29"></i><i style="background:#342d19"></i></span><span
+                        class="cin"><span class="cnm">Arena</span><span class="chx">#C2B280</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="148"><span class="csw"
+                        style="background:#8B7355"></span><span class="cst"><i style="background:#f5f3ef"></i><i
+                            style="background:#e2dad0"></i><i style="background:#cfc1b0"></i><i
+                            style="background:#bba890"></i><i style="background:#a88f71"></i><i
+                            style="background:#8e7657"></i><i style="background:#6f5b44"></i><i
+                            style="background:#4f4130"></i><i style="background:#2f271d"></i></span><span
+                        class="cin"><span class="cnm">Tierra</span><span class="chx">#8B7355</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="149"><span class="csw"
+                        style="background:#01796F"></span><span class="cst"><i style="background:#e6fffd"></i><i
+                            style="background:#b3fef8"></i><i style="background:#81fef3"></i><i
+                            style="background:#4efdef"></i><i style="background:#1cfdea"></i><i
+                            style="background:#02e3d0"></i><i style="background:#02b1a2"></i><i
+                            style="background:#017e74"></i><i style="background:#014c45"></i></span><span
+                        class="cin"><span class="cnm">Pino</span><span class="chx">#01796F</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="150"><span class="csw"
+                        style="background:#8A9A5B"></span><span class="cst"><i style="background:#f4f6ef"></i><i
+                            style="background:#dee3cf"></i><i style="background:#c8d0af"></i><i
+                            style="background:#b1bd8f"></i><i style="background:#9baa6e"></i><i
+                            style="background:#829155"></i><i style="background:#657042"></i><i
+                            style="background:#48502f"></i><i style="background:#2b301c"></i></span><span
+                        class="cin"><span class="cnm">Musgo</span><span class="chx">#8A9A5B</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="151"><span class="csw"
+                        style="background:#8B6914"></span><span class="cst"><i style="background:#fcf6e9"></i><i
+                            style="background:#f5e5bc"></i><i style="background:#efd48f"></i><i
+                            style="background:#e9c363"></i><i style="background:#e2b236"></i><i
+                            style="background:#c9981d"></i><i style="background:#9c7616"></i><i
+                            style="background:#705410"></i><i style="background:#43330a"></i></span><span
+                        class="cin"><span class="cnm">Nuez</span><span class="chx">#8B6914</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="152"><span class="csw"
+                        style="background:#FF7F50"></span><span class="cst"><i style="background:#ffece5"></i><i
+                            style="background:#ffc7b2"></i><i style="background:#ffa280"></i><i
+                            style="background:#ff7c4d"></i><i style="background:#ff571a"></i><i
+                            style="background:#e63d00"></i><i style="background:#b23000"></i><i
+                            style="background:#802200"></i><i style="background:#4c1400"></i></span><span
+                        class="cin"><span class="cnm">Coral Marino</span><span class="chx">#FF7F50</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="153"><span class="csw"
+                        style="background:#967BB6"></span><span class="cst"><i style="background:#f2eff6"></i><i
+                            style="background:#d8cee4"></i><i style="background:#bdadd2"></i><i
+                            style="background:#a38cc0"></i><i style="background:#896bae"></i><i
+                            style="background:#6f5194"></i><i style="background:#573f73"></i><i
+                            style="background:#3e2d52"></i><i style="background:#251b31"></i></span><span
+                        class="cin"><span class="cnm">Lavanda Campo</span><span class="chx">#967BB6</span></span></a><a
+                    href="javascript:void(0)" class="card" data-i="154"><span class="csw"
+                        style="background:#928E85"></span><span class="cst"><i style="background:#f3f3f1"></i><i
+                            style="background:#dbdad6"></i><i style="background:#c3c1bb"></i><i
+                            style="background:#aba8a0"></i><i style="background:#938f85"></i><i
+                            style="background:#7a766c"></i><i style="background:#5f5b54"></i><i
+                            style="background:#44413c"></i><i style="background:#292724"></i></span><span
+                        class="cin"><span class="cnm">Piedra</span><span class="chx">#928E85</span></span></a></div>
+        </div>
+    </div>
+
+    <!-- Overlay: tap to close -->
+    <div id="ov" style="display:none"></div>
+
+    <!-- Modal -->
+    <div id="mdl" style="display:none">
+        <div class="mhdr" id="mhdr">
+            <div class="mname" id="mname"></div>
+            <button id="mx" type="button">&#x2715;</button>
+        </div>
+        <div class="mbody">
+            <div class="codes" id="codes"></div>
+            <div class="mtitle2">Paleta Monocromatica</div>
+            <div class="mgrid" id="mgrid"></div>
+            <div style="font-size:11px;color:#999;margin-top:4px">Toca cada tono para copiar el codigo</div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Footer -->
+    <div style="line-height:0;margin-top:40px">
+        <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+            style="display:block;width:100%">
+            <path d="M0,30 C200,90 400,0 600,45 C800,90 1000,0 1200,45 C1320,70 1400,20 1440,30 L1440,90 L0,90 Z"
+                fill="#262626" />
+        </svg>
+    </div>
+    <footer style="background:#262626;color:#fff;text-align:center;padding:30px 20px 40px;font-family:Arial,sans-serif">
+        <div style="font-size:28px;font-weight:900;margin-bottom:14px">
+            <span style="color:#c9960c">Paleta</span><span style="color:#fff">Colores</span>
+        </div>
+        <div style="font-size:14px;color:#ffffff;max-width:400px;margin:0 auto 22px;line-height:1.6">
+            Tu guía cromática completa. Explora, descubre y copia códigos de color al instante.
+        </div>
+        <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:28px">
+            <span style="width:28px;height:28px;border-radius:50%;display:inline-block;background:#e74c3c"></span>
+            <span style="width:28px;height:28px;border-radius:50%;display:inline-block;background:#e67e22"></span>
+            <span style="width:28px;height:28px;border-radius:50%;display:inline-block;background:#f1c40f"></span>
+            <span style="width:28px;height:28px;border-radius:50%;display:inline-block;background:#2ecc71"></span>
+            <span style="width:28px;height:28px;border-radius:50%;display:inline-block;background:#1abc9c"></span>
+            <span style="width:28px;height:28px;border-radius:50%;display:inline-block;background:#3498db"></span>
+            <span style="width:28px;height:28px;border-radius:50%;display:inline-block;background:#9b59b6"></span>
+            <span style="width:28px;height:28px;border-radius:50%;display:inline-block;background:#e91e8c"></span>
+            <span style="width:28px;height:28px;border-radius:50%;display:inline-block;background:#c9960c"></span>
+        </div>
+        <hr style="border:none;border-top:1px solid #444;max-width:500px;margin:0 auto 18px">
+        <div style="font-size:12px;color:#ffffff">&copy; 2026 PaletaColores &mdash; Todos los derechos reservados</div>
+    </footer>
+
+    <script>
+        var C = [{ "n": "Rojo", "h": "#FF0000", "c": "Rojos", "r": 255, "g": 0, "b": 0, "hh": 0, "hs": 100, "hl": 50, "tc": "#fff", "sh": ["#ffe5e5", "#ffb2b2", "#ff8080", "#ff4d4d", "#ff1a1a", "#e60000", "#b20000", "#800000", "#4c0000"] }, { "n": "Carmesi", "h": "#DC143C", "c": "Rojos", "r": 220, "g": 20, "b": 60, "hh": 348, "hs": 83, "hl": 47, "tc": "#fff", "sh": ["#fde8ec", "#f8b9c6", "#f48aa0", "#f05c79", "#eb2d53", "#d2143a", "#a30f2d", "#750b20", "#460713"] }, { "n": "Escarlata", "h": "#FF2400", "c": "Rojos", "r": 255, "g": 36, "b": 0, "hh": 8, "hs": 100, "hl": 50, "tc": "#fff", "sh": ["#ffe9e5", "#ffbdb2", "#ff9180", "#ff644d", "#ff381a", "#e61f00", "#b21800", "#801100", "#4c0a00"] }, { "n": "Rojo Oscuro", "h": "#8B0000", "c": "Rojos", "r": 139, "g": 0, "b": 0, "hh": 0, "hs": 100, "hl": 27, "tc": "#fff", "sh": ["#ffe5e5", "#ffb2b2", "#ff8080", "#ff4d4d", "#ff1a1a", "#e60000", "#b20000", "#800000", "#4c0000"] }, { "n": "Rojo Fuego", "h": "#CE2029", "c": "Rojos", "r": 206, "g": 32, "b": 41, "hh": 357, "hs": 73, "hl": 47, "tc": "#fff", "sh": ["#fce9ea", "#f5bdc0", "#ee9195", "#e7656b", "#e03841", "#c71f27", "#9a181f", "#6e1116", "#420a0d"] }, { "n": "Granate", "h": "#800020", "c": "Rojos", "r": 128, "g": 0, "b": 32, "hh": 345, "hs": 100, "hl": 25, "tc": "#fff", "sh": ["#ffe5ec", "#ffb2c6", "#ff809f", "#ff4d79", "#ff1a53", "#e60039", "#b2002d", "#800020", "#4c0013"] }, { "n": "Rojo Tomate", "h": "#FF6347", "c": "Rojos", "r": 255, "g": 99, "b": 71, "hh": 9, "hs": 100, "hl": 64, "tc": "#111", "sh": ["#ffe9e5", "#ffbeb2", "#ff9380", "#ff674d", "#ff3c1a", "#e62200", "#b21b00", "#801300", "#4c0b00"] }, { "n": "Frambuesa", "h": "#E30B5D", "c": "Rojos", "r": 227, "g": 11, "b": 93, "hh": 337, "hs": 91, "hl": 47, "tc": "#fff", "sh": ["#fee7f0", "#fcb6d1", "#f985b2", "#f75593", "#f52474", "#db0a5a", "#aa0846", "#7a0632", "#49031e"] }, { "n": "Ladrillo", "h": "#CB4154", "c": "Rojos", "r": 203, "g": 65, "b": 84, "hh": 352, "hs": 57, "hl": 53, "tc": "#fff", "sh": ["#faebed", "#efc3c9", "#e49ba5", "#d97380", "#ce4b5c", "#b43143", "#8c2634", "#641b25", "#3c1016"] }, { "n": "Borgona", "h": "#800000", "c": "Rojos", "r": 128, "g": 0, "b": 0, "hh": 0, "hs": 100, "hl": 25, "tc": "#fff", "sh": ["#ffe5e5", "#ffb2b2", "#ff8080", "#ff4d4d", "#ff1a1a", "#e60000", "#b20000", "#800000", "#4c0000"] }, { "n": "Rosa", "h": "#FF69B4", "c": "Rosas", "r": 255, "g": 105, "b": 180, "hh": 330, "hs": 100, "hl": 71, "tc": "#111", "sh": ["#ffe5f2", "#ffb2d9", "#ff80bf", "#ff4da6", "#ff1a8c", "#e60073", "#b20059", "#800040", "#4c0026"] }, { "n": "Rosa Fucsia", "h": "#FF1493", "c": "Rosas", "r": 255, "g": 20, "b": 147, "hh": 328, "hs": 100, "hl": 54, "tc": "#fff", "sh": ["#ffe5f3", "#ffb2db", "#ff80c3", "#ff4dac", "#ff1a94", "#e6007a", "#b2005f", "#800044", "#4c0029"] }, { "n": "Rosa Claro", "h": "#FFB6C1", "c": "Rosas", "r": 255, "g": 182, "b": 193, "hh": 351, "hs": 100, "hl": 86, "tc": "#111", "sh": ["#ffe5e9", "#ffb2be", "#ff8093", "#ff4d67", "#ff1a3c", "#e60022", "#b2001b", "#800013", "#4c000b"] }, { "n": "Rosa Profundo", "h": "#FF007F", "c": "Rosas", "r": 255, "g": 0, "b": 127, "hh": 330, "hs": 100, "hl": 50, "tc": "#fff", "sh": ["#ffe5f2", "#ffb2d9", "#ff80bf", "#ff4da6", "#ff1a8c", "#e60073", "#b20059", "#800040", "#4c0026"] }, { "n": "Rosa Bebe", "h": "#F4C2C2", "c": "Rosas", "r": 244, "g": 194, "b": 194, "hh": 0, "hs": 69, "hl": 86, "tc": "#111", "sh": ["#fbe9e9", "#f3bebe", "#eb9393", "#e36868", "#db3d3d", "#c22424", "#971c1c", "#6c1414", "#410c0c"] }, { "n": "Rosa Antiguo", "h": "#C08081", "c": "Rosas", "r": 192, "g": 128, "b": 129, "hh": 359, "hs": 34, "hl": 63, "tc": "#111", "sh": ["#f7eeee", "#e6cccc", "#d5aaaa", "#c48788", "#b36567", "#9a4c4d", "#783b3c", "#552a2b", "#33191a"] }, { "n": "Rosa Cereza", "h": "#DE3163", "c": "Rosas", "r": 222, "g": 49, "b": 99, "hh": 343, "hs": 72, "hl": 53, "tc": "#fff", "sh": ["#fbe9ee", "#f4bdcd", "#ed91ab", "#e6658a", "#df3a68", "#c5204f", "#9a193d", "#6e122c", "#420b1a"] }, { "n": "Magenta", "h": "#CC00CC", "c": "Rosas", "r": 204, "g": 0, "b": 204, "hh": 300, "hs": 100, "hl": 40, "tc": "#fff", "sh": ["#ffe5ff", "#ffb2ff", "#ff80ff", "#ff4dff", "#ff1aff", "#e600e6", "#b200b2", "#800080", "#4c004c"] }, { "n": "Orquidea", "h": "#DA70D6", "c": "Rosas", "r": 218, "g": 112, "b": 214, "hh": 302, "hs": 59, "hl": 65, "tc": "#111", "sh": ["#faebf9", "#efc2ee", "#e59ae2", "#da71d7", "#d049cb", "#b62fb2", "#8e258a", "#651a63", "#3d103b"] }, { "n": "Rosa Coral", "h": "#F88379", "c": "Rosas", "r": 248, "g": 131, "b": 121, "hh": 5, "hs": 90, "hl": 72, "tc": "#111", "sh": ["#fee9e7", "#fbbcb6", "#f98f86", "#f66355", "#f43625", "#da1d0b", "#aa1609", "#791006", "#490a04"] }, { "n": "Naranja", "h": "#FF8000", "c": "Naranjas", "r": 255, "g": 128, "b": 0, "hh": 30, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#fff2e5", "#ffd9b2", "#ffbf80", "#ffa64d", "#ff8c1a", "#e67300", "#b25900", "#804000", "#4c2600"] }, { "n": "Naranja Oscuro", "h": "#FF6600", "c": "Naranjas", "r": 255, "g": 102, "b": 0, "hh": 24, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#fff0e5", "#ffd1b2", "#ffb380", "#ff944d", "#ff751a", "#e65c00", "#b24700", "#803300", "#4c1f00"] }, { "n": "Naranja Claro", "h": "#FFAD00", "c": "Naranjas", "r": 255, "g": 173, "b": 0, "hh": 41, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#fff7e5", "#ffe7b2", "#ffd780", "#ffc64d", "#ffb61a", "#e69d00", "#b27a00", "#805700", "#4c3400"] }, { "n": "Mandarina", "h": "#F28500", "c": "Naranjas", "r": 242, "g": 133, "b": 0, "hh": 33, "hs": 100, "hl": 47, "tc": "#111", "sh": ["#fff4e5", "#ffddb2", "#ffc680", "#ffaf4d", "#ff981a", "#e67e00", "#b26200", "#804600", "#4c2a00"] }, { "n": "Ambar", "h": "#FFBF00", "c": "Naranjas", "r": 255, "g": 191, "b": 0, "hh": 45, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#fff9e5", "#ffecb2", "#ffdf80", "#ffd24d", "#ffc61a", "#e6ac00", "#b28600", "#806000", "#4c3900"] }, { "n": "Melocoton", "h": "#FFCBA4", "c": "Naranjas", "r": 255, "g": 203, "b": 164, "hh": 26, "hs": 100, "hl": 82, "tc": "#111", "sh": ["#fff1e5", "#ffd4b2", "#ffb780", "#ff9a4d", "#ff7d1a", "#e66300", "#b24d00", "#803700", "#4c2100"] }, { "n": "Salmon", "h": "#FA8072", "c": "Naranjas", "r": 250, "g": 128, "b": 114, "hh": 6, "hs": 93, "hl": 71, "tc": "#111", "sh": ["#fee9e6", "#fcbcb5", "#fb9084", "#f96353", "#f73722", "#dd1d08", "#ac1706", "#7b1004", "#4a0a03"] }, { "n": "Coral", "h": "#FF7F50", "c": "Naranjas", "r": 255, "g": 127, "b": 80, "hh": 16, "hs": 100, "hl": 66, "tc": "#111", "sh": ["#ffece5", "#ffc7b2", "#ffa280", "#ff7c4d", "#ff571a", "#e63d00", "#b23000", "#802200", "#4c1400"] }, { "n": "Albaricoque", "h": "#FBCEB1", "c": "Naranjas", "r": 251, "g": 206, "b": 177, "hh": 24, "hs": 90, "hl": 84, "tc": "#111", "sh": ["#fef0e7", "#fbd2b6", "#f9b486", "#f69655", "#f47825", "#da5e0b", "#aa4909", "#793406", "#491f04"] }, { "n": "Calabaza", "h": "#FF7518", "c": "Naranjas", "r": 255, "g": 117, "b": 24, "hh": 24, "hs": 100, "hl": 55, "tc": "#111", "sh": ["#fff0e5", "#ffd1b2", "#ffb380", "#ff944d", "#ff751a", "#e65c00", "#b24700", "#803300", "#4c1f00"] }, { "n": "Amarillo", "h": "#FFEE00", "c": "Amarillos", "r": 255, "g": 238, "b": 0, "hh": 56, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#fffde5", "#fffab2", "#fff780", "#fff34d", "#fff01a", "#e6d600", "#b2a700", "#807700", "#4c4700"] }, { "n": "Limon", "h": "#FFF44F", "c": "Amarillos", "r": 255, "g": 244, "b": 79, "hh": 56, "hs": 100, "hl": 65, "tc": "#111", "sh": ["#fffde5", "#fffab2", "#fff780", "#fff34d", "#fff01a", "#e6d600", "#b2a700", "#807700", "#4c4700"] }, { "n": "Canario", "h": "#FFEF00", "c": "Amarillos", "r": 255, "g": 239, "b": 0, "hh": 56, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#fffde5", "#fffab2", "#fff780", "#fff34d", "#fff01a", "#e6d600", "#b2a700", "#807700", "#4c4700"] }, { "n": "Oro", "h": "#FFD700", "c": "Amarillos", "r": 255, "g": 215, "b": 0, "hh": 51, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#fffbe5", "#fff4b2", "#ffec80", "#ffe44d", "#ffdd1a", "#e6c300", "#b29800", "#806c00", "#4c4100"] }, { "n": "Dorado", "h": "#DAA520", "c": "Amarillos", "r": 218, "g": 165, "b": 32, "hh": 43, "hs": 74, "hl": 49, "tc": "#111", "sh": ["#fcf6e9", "#f5e5bc", "#eed490", "#e8c264", "#e1b137", "#c8981e", "#9b7617", "#6f5411", "#43330a"] }, { "n": "Crema", "h": "#FFFDD0", "c": "Amarillos", "r": 255, "g": 253, "b": 208, "hh": 57, "hs": 100, "hl": 91, "tc": "#111", "sh": ["#fffee5", "#fffbb2", "#fff980", "#fff64d", "#fff41a", "#e6da00", "#b2aa00", "#807900", "#4c4900"] }, { "n": "Mantequilla", "h": "#FFFD74", "c": "Amarillos", "r": 255, "g": 253, "b": 116, "hh": 59, "hs": 100, "hl": 73, "tc": "#111", "sh": ["#ffffe5", "#fffeb2", "#fffd80", "#fffc4d", "#fffb1a", "#e6e200", "#b2b000", "#807d00", "#4c4b00"] }, { "n": "Paja", "h": "#E4D96F", "c": "Amarillos", "r": 228, "g": 217, "b": 111, "hh": 54, "hs": 68, "hl": 66, "tc": "#111", "sh": ["#fbf9ea", "#f3eebf", "#ebe294", "#e2d669", "#dacb3e", "#c1b125", "#968a1d", "#6b6214", "#403b0c"] }, { "n": "Mostaza", "h": "#E1AD01", "c": "Amarillos", "r": 225, "g": 173, "b": 1, "hh": 46, "hs": 99, "hl": 44, "tc": "#111", "sh": ["#fff9e6", "#ffedb3", "#fee180", "#fed54d", "#fec91b", "#e4af01", "#b28801", "#7f6101", "#4c3a00"] }, { "n": "Champana", "h": "#F7E7CE", "c": "Amarillos", "r": 247, "g": 231, "b": 206, "hh": 37, "hs": 72, "hl": 89, "tc": "#111", "sh": ["#fbf4e9", "#f4dfbd", "#edca91", "#e6b565", "#dfa03a", "#c58620", "#9a6819", "#6e4a12", "#422d0b"] }, { "n": "Verde", "h": "#00BB00", "c": "Verdes", "r": 0, "g": 187, "b": 0, "hh": 120, "hs": 100, "hl": 37, "tc": "#fff", "sh": ["#e5ffe5", "#b2ffb2", "#80ff80", "#4dff4d", "#1aff1a", "#00e600", "#00b200", "#008000", "#004c00"] }, { "n": "Verde Lima", "h": "#32CD32", "c": "Verdes", "r": 50, "g": 205, "b": 50, "hh": 120, "hs": 61, "hl": 50, "tc": "#111", "sh": ["#eafaea", "#c1f0c1", "#98e698", "#6fdc6f", "#46d246", "#2db92d", "#239023", "#196719", "#0f3e0f"] }, { "n": "Verde Bosque", "h": "#228B22", "c": "Verdes", "r": 34, "g": 139, "b": 34, "hh": 120, "hs": 61, "hl": 34, "tc": "#fff", "sh": ["#eafaea", "#c1f0c1", "#98e698", "#6fdc6f", "#46d246", "#2db92d", "#239023", "#196719", "#0f3e0f"] }, { "n": "Verde Oscuro", "h": "#006400", "c": "Verdes", "r": 0, "g": 100, "b": 0, "hh": 120, "hs": 100, "hl": 20, "tc": "#fff", "sh": ["#e5ffe5", "#b2ffb2", "#80ff80", "#4dff4d", "#1aff1a", "#00e600", "#00b200", "#008000", "#004c00"] }, { "n": "Verde Oliva", "h": "#808000", "c": "Verdes", "r": 128, "g": 128, "b": 0, "hh": 60, "hs": 100, "hl": 25, "tc": "#fff", "sh": ["#ffffe5", "#ffffb2", "#ffff80", "#ffff4d", "#ffff1a", "#e6e600", "#b2b200", "#808000", "#4c4c00"] }, { "n": "Verde Pino", "h": "#01796F", "c": "Verdes", "r": 1, "g": 121, "b": 111, "hh": 175, "hs": 98, "hl": 24, "tc": "#fff", "sh": ["#e6fffd", "#b3fef8", "#81fef3", "#4efdef", "#1cfdea", "#02e3d0", "#02b1a2", "#017e74", "#014c45"] }, { "n": "Verde Menta", "h": "#98FF98", "c": "Verdes", "r": 152, "g": 255, "b": 152, "hh": 120, "hs": 100, "hl": 80, "tc": "#111", "sh": ["#e5ffe5", "#b2ffb2", "#80ff80", "#4dff4d", "#1aff1a", "#00e600", "#00b200", "#008000", "#004c00"] }, { "n": "Verde Jade", "h": "#00A36C", "c": "Verdes", "r": 0, "g": 163, "b": 108, "hh": 160, "hs": 100, "hl": 32, "tc": "#fff", "sh": ["#e5fff6", "#b2ffe5", "#80ffd4", "#4dffc3", "#1affb2", "#00e699", "#00b277", "#008055", "#004c33"] }, { "n": "Verde Esmeralda", "h": "#50C878", "c": "Verdes", "r": 80, "g": 200, "b": 120, "hh": 140, "hs": 52, "hl": 55, "tc": "#111", "sh": ["#ecf9f0", "#c5edd2", "#9ee0b4", "#77d496", "#51c878", "#37ae5f", "#2b884a", "#1f6135", "#123a20"] }, { "n": "Verde Musgo", "h": "#8A9A5B", "c": "Verdes", "r": 138, "g": 154, "b": 91, "hh": 75, "hs": 26, "hl": 48, "tc": "#111", "sh": ["#f4f6ef", "#dee3cf", "#c8d0af", "#b1bd8f", "#9baa6e", "#829155", "#657042", "#48502f", "#2b301c"] }, { "n": "Verde Salvia", "h": "#8FBC8F", "c": "Verdes", "r": 143, "g": 188, "b": 143, "hh": 120, "hs": 25, "hl": 65, "tc": "#111", "sh": ["#eff5ef", "#cfe2cf", "#afcfaf", "#8fbc8f", "#70a970", "#568f56", "#437043", "#305030", "#1d301d"] }, { "n": "Verde Mar", "h": "#2E8B57", "c": "Verdes", "r": 46, "g": 139, "b": 87, "hh": 146, "hs": 50, "hl": 36, "tc": "#fff", "sh": ["#ecf9f1", "#c6ecd6", "#9fdfbb", "#79d2a0", "#53c685", "#39ac6b", "#2d8653", "#20603c", "#133924"] }, { "n": "Verde Manzana", "h": "#8DB600", "c": "Verdes", "r": 141, "g": 182, "b": 0, "hh": 74, "hs": 100, "hl": 36, "tc": "#111", "sh": ["#f9ffe5", "#edffb2", "#e1ff80", "#d5ff4d", "#c9ff1a", "#b0e600", "#89b200", "#628000", "#3b4c00"] }, { "n": "Verde Prado", "h": "#7CFC00", "c": "Verdes", "r": 124, "g": 252, "b": 0, "hh": 90, "hs": 100, "hl": 49, "tc": "#111", "sh": ["#f2ffe5", "#d9ffb2", "#bfff80", "#a6ff4d", "#8cff1a", "#73e600", "#59b200", "#408000", "#264c00"] }, { "n": "Azul", "h": "#0055FF", "c": "Azules", "r": 0, "g": 85, "b": 255, "hh": 220, "hs": 100, "hl": 50, "tc": "#fff", "sh": ["#e5eeff", "#b2ccff", "#80aaff", "#4d88ff", "#1a66ff", "#004de6", "#003cb2", "#002b80", "#001a4c"] }, { "n": "Azul Cielo", "h": "#87CEEB", "c": "Azules", "r": 135, "g": 206, "b": 235, "hh": 197, "hs": 71, "hl": 73, "tc": "#111", "sh": ["#e9f6fb", "#bee5f4", "#92d3ed", "#66c1e5", "#3bb0de", "#2196c4", "#1a7599", "#12536d", "#0b3241"] }, { "n": "Azul Marino", "h": "#000080", "c": "Azules", "r": 0, "g": 0, "b": 128, "hh": 240, "hs": 100, "hl": 25, "tc": "#fff", "sh": ["#e5e5ff", "#b2b2ff", "#8080ff", "#4d4dff", "#1a1aff", "#0000e6", "#0000b2", "#000080", "#00004c"] }, { "n": "Azul Cobalto", "h": "#0047AB", "c": "Azules", "r": 0, "g": 71, "b": 171, "hh": 215, "hs": 100, "hl": 34, "tc": "#fff", "sh": ["#e5f0ff", "#b2d2ff", "#80b5ff", "#4d97ff", "#1a79ff", "#0060e6", "#004ab2", "#003580", "#00204c"] }, { "n": "Azul Real", "h": "#4169E1", "c": "Azules", "r": 65, "g": 105, "b": 225, "hh": 225, "hs": 73, "hl": 57, "tc": "#fff", "sh": ["#e9eefc", "#bdcbf5", "#91a8ee", "#6585e7", "#3862e0", "#1f49c7", "#18399a", "#11286e", "#0a1842"] }, { "n": "Azul Acero", "h": "#4682B4", "c": "Azules", "r": 70, "g": 130, "b": 180, "hh": 207, "hs": 44, "hl": 49, "tc": "#fff", "sh": ["#edf3f8", "#c8daea", "#a3c2db", "#7eaacd", "#5a91bf", "#4078a5", "#325d81", "#24435c", "#152837"] }, { "n": "Azul Turquesa", "h": "#00CED1", "c": "Azules", "r": 0, "g": 206, "b": 209, "hh": 181, "hs": 100, "hl": 41, "tc": "#111", "sh": ["#e5ffff", "#b2feff", "#80fdff", "#4dfcff", "#1afbff", "#00e2e6", "#00b0b2", "#007d80", "#004b4c"] }, { "n": "Azul Electrico", "h": "#00BFFF", "c": "Azules", "r": 0, "g": 191, "b": 255, "hh": 195, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#e5f9ff", "#b2ecff", "#80dfff", "#4dd2ff", "#1ac6ff", "#00ace6", "#0086b2", "#006080", "#00394c"] }, { "n": "Azul Zafiro", "h": "#0F52BA", "c": "Azules", "r": 15, "g": 82, "b": 186, "hh": 216, "hs": 85, "hl": 39, "tc": "#fff", "sh": ["#e7f0fd", "#b8d2f9", "#89b4f5", "#5a97f2", "#2b79ee", "#115fd4", "#0d4aa5", "#0a3576", "#062047"] }, { "n": "Azul Noche", "h": "#191970", "c": "Azules", "r": 25, "g": 25, "b": 112, "hh": 240, "hs": 64, "hl": 27, "tc": "#fff", "sh": ["#eaeafa", "#c0c0f1", "#9696e8", "#6d6ddf", "#4343d6", "#2929bc", "#202092", "#171769", "#0e0e3f"] }, { "n": "Azul Bebe", "h": "#89CFF0", "c": "Azules", "r": 137, "g": 207, "b": 240, "hh": 199, "hs": 77, "hl": 74, "tc": "#111", "sh": ["#e8f6fc", "#bbe4f6", "#8ed1f0", "#61bfea", "#34ade5", "#1a93cb", "#15729e", "#0f5271", "#093144"] }, { "n": "Azul Denim", "h": "#1560BD", "c": "Azules", "r": 21, "g": 96, "b": 189, "hh": 213, "hs": 80, "hl": 41, "tc": "#fff", "sh": ["#e8f1fc", "#bad6f7", "#8cbaf2", "#5e9fed", "#3083e8", "#176acf", "#1252a1", "#0d3b73", "#082345"] }, { "n": "Azul Persa", "h": "#1C39BB", "c": "Azules", "r": 28, "g": 57, "b": 187, "hh": 229, "hs": 74, "hl": 42, "tc": "#fff", "sh": ["#e9ecfc", "#bcc7f5", "#90a1ee", "#647ce8", "#3756e1", "#1e3dc8", "#172f9b", "#11226f", "#0a1443"] }, { "n": "Azul Hielo", "h": "#99C5C4", "c": "Azules", "r": 153, "g": 197, "b": 196, "hh": 179, "hs": 28, "hl": 69, "tc": "#111", "sh": ["#eff6f6", "#cee3e3", "#add1d1", "#8dbfbe", "#6cacab", "#539392", "#407271", "#2e5251", "#1c3131"] }, { "n": "Cian", "h": "#00CCCC", "c": "Cianes", "r": 0, "g": 204, "b": 204, "hh": 180, "hs": 100, "hl": 40, "tc": "#111", "sh": ["#e5ffff", "#b2ffff", "#80ffff", "#4dffff", "#1affff", "#00e6e6", "#00b2b2", "#008080", "#004c4c"] }, { "n": "Turquesa", "h": "#40E0D0", "c": "Cianes", "r": 64, "g": 224, "b": 208, "hh": 174, "hs": 72, "hl": 56, "tc": "#111", "sh": ["#e9fbfa", "#bdf4ef", "#91ede4", "#65e6d9", "#3adfce", "#20c5b5", "#199a8d", "#126e64", "#0b423c"] }, { "n": "Aguamarina", "h": "#7FFFD4", "c": "Cianes", "r": 127, "g": 255, "b": 212, "hh": 160, "hs": 100, "hl": 75, "tc": "#111", "sh": ["#e5fff6", "#b2ffe5", "#80ffd4", "#4dffc3", "#1affb2", "#00e699", "#00b277", "#008055", "#004c33"] }, { "n": "Teal", "h": "#008080", "c": "Cianes", "r": 0, "g": 128, "b": 128, "hh": 180, "hs": 100, "hl": 25, "tc": "#fff", "sh": ["#e5ffff", "#b2ffff", "#80ffff", "#4dffff", "#1affff", "#00e6e6", "#00b2b2", "#008080", "#004c4c"] }, { "n": "Verde Agua", "h": "#00827F", "c": "Cianes", "r": 0, "g": 130, "b": 127, "hh": 179, "hs": 100, "hl": 25, "tc": "#fff", "sh": ["#e5ffff", "#b2fffe", "#80fffd", "#4dfffc", "#1afffb", "#00e6e2", "#00b2b0", "#00807d", "#004c4b"] }, { "n": "Celeste", "h": "#99EEFF", "c": "Cianes", "r": 153, "g": 238, "b": 255, "hh": 190, "hs": 100, "hl": 80, "tc": "#111", "sh": ["#e5fbff", "#b2f2ff", "#80eaff", "#4de1ff", "#1ad9ff", "#00bfe6", "#0095b2", "#006a80", "#00404c"] }, { "n": "Azul Caribe", "h": "#006994", "c": "Cianes", "r": 0, "g": 105, "b": 148, "hh": 197, "hs": 100, "hl": 29, "tc": "#fff", "sh": ["#e5f8ff", "#b2e9ff", "#80dbff", "#4dccff", "#1abeff", "#00a4e6", "#0080b2", "#005b80", "#00374c"] }, { "n": "Azul Laguna", "h": "#ACE5EE", "c": "Cianes", "r": 172, "g": 229, "b": 238, "hh": 188, "hs": 66, "hl": 80, "tc": "#111", "sh": ["#eaf8fb", "#c0ebf2", "#95dee9", "#6bd1e1", "#41c4d8", "#27aabe", "#1e8494", "#165f6a", "#0d393f"] }, { "n": "Violeta", "h": "#EE82EE", "c": "Violetas", "r": 238, "g": 130, "b": 238, "hh": 300, "hs": 76, "hl": 72, "tc": "#111", "sh": ["#fce9fc", "#f6bcf6", "#f08ff0", "#ea62ea", "#e335e3", "#ca1cca", "#9d159d", "#700f70", "#430943"] }, { "n": "Purpura", "h": "#800080", "c": "Violetas", "r": 128, "g": 0, "b": 128, "hh": 300, "hs": 100, "hl": 25, "tc": "#fff", "sh": ["#ffe5ff", "#ffb2ff", "#ff80ff", "#ff4dff", "#ff1aff", "#e600e6", "#b200b2", "#800080", "#4c004c"] }, { "n": "Lavanda", "h": "#C8A2C8", "c": "Violetas", "r": 200, "g": 162, "b": 200, "hh": 300, "hs": 26, "hl": 71, "tc": "#111", "sh": ["#f6eff6", "#e3cfe3", "#d0afd0", "#bd8fbd", "#aa6eaa", "#915591", "#704270", "#502f50", "#301c30"] }, { "n": "Malva", "h": "#E0B0FF", "c": "Violetas", "r": 224, "g": 176, "b": 255, "hh": 276, "hs": 100, "hl": 85, "tc": "#111", "sh": ["#f5e5ff", "#e0b2ff", "#cc80ff", "#b84dff", "#a31aff", "#8a00e6", "#6b00b2", "#4c0080", "#2e004c"] }, { "n": "Lila", "h": "#9966CC", "c": "Violetas", "r": 153, "g": 102, "b": 204, "hh": 270, "hs": 50, "hl": 60, "tc": "#fff", "sh": ["#f2ecf9", "#d9c6ec", "#bf9fdf", "#a679d2", "#8c53c6", "#7339ac", "#592d86", "#402060", "#261339"] }, { "n": "Amatista", "h": "#7B3F8D", "c": "Violetas", "r": 123, "g": 63, "b": 141, "hh": 286, "hs": 38, "hl": 40, "tc": "#fff", "sh": ["#f5edf7", "#e1cae7", "#cca7d7", "#b884c8", "#a461b8", "#8a479e", "#6b377b", "#4d2858", "#2e1835"] }, { "n": "Violeta Oscuro", "h": "#7F00FF", "c": "Violetas", "r": 127, "g": 0, "b": 255, "hh": 270, "hs": 100, "hl": 50, "tc": "#fff", "sh": ["#f2e5ff", "#d9b2ff", "#bf80ff", "#a64dff", "#8c1aff", "#7300e6", "#5900b2", "#400080", "#26004c"] }, { "n": "Ciruela", "h": "#DDA0DD", "c": "Violetas", "r": 221, "g": 160, "b": 221, "hh": 300, "hs": 47, "hl": 75, "tc": "#111", "sh": ["#f8ecf8", "#ebc7eb", "#dda1dd", "#d07cd0", "#c256c2", "#a93da9", "#832f83", "#5e225e", "#381438"] }, { "n": "Heliotropo", "h": "#DF73FF", "c": "Violetas", "r": 223, "g": 115, "b": 255, "hh": 286, "hs": 100, "hl": 73, "tc": "#111", "sh": ["#f9e5ff", "#edb2ff", "#e180ff", "#d54dff", "#c91aff", "#b000e6", "#8900b2", "#620080", "#3b004c"] }, { "n": "Indigo", "h": "#4B0082", "c": "Violetas", "r": 75, "g": 0, "b": 130, "hh": 275, "hs": 100, "hl": 25, "tc": "#fff", "sh": ["#f4e5ff", "#dfb2ff", "#ca80ff", "#b54dff", "#9f1aff", "#8600e6", "#6800b2", "#4a0080", "#2d004c"] }, { "n": "Marron", "h": "#A52A2A", "c": "Marrones", "r": 165, "g": 42, "b": 42, "hh": 0, "hs": 59, "hl": 41, "tc": "#fff", "sh": ["#faebeb", "#efc2c2", "#e59a9a", "#da7171", "#d04949", "#b62f2f", "#8e2525", "#651a1a", "#3d1010"] }, { "n": "Cafe", "h": "#6F4E37", "c": "Marrones", "r": 111, "g": 78, "b": 55, "hh": 25, "hs": 34, "hl": 33, "tc": "#fff", "sh": ["#f7f2ee", "#e6d7cc", "#d5bcaa", "#c4a187", "#b38665", "#9a6c4c", "#78543b", "#553c2a", "#332419"] }, { "n": "Chocolate", "h": "#7B3F00", "c": "Marrones", "r": 123, "g": 63, "b": 0, "hh": 31, "hs": 100, "hl": 24, "tc": "#fff", "sh": ["#fff3e5", "#ffdab2", "#ffc180", "#ffa94d", "#ff901a", "#e67700", "#b25c00", "#804200", "#4c2800"] }, { "n": "Terracota", "h": "#CC5500", "c": "Marrones", "r": 204, "g": 85, "b": 0, "hh": 25, "hs": 100, "hl": 40, "tc": "#fff", "sh": ["#fff0e5", "#ffd2b2", "#ffb580", "#ff974d", "#ff791a", "#e66000", "#b24a00", "#803500", "#4c2000"] }, { "n": "Cobre", "h": "#B87333", "c": "Marrones", "r": 184, "g": 115, "b": 51, "hh": 29, "hs": 57, "hl": 46, "tc": "#fff", "sh": ["#faf2eb", "#efd8c3", "#e4be9b", "#d9a473", "#ce8a4b", "#b47131", "#8c5826", "#643f1b", "#3c2610"] }, { "n": "Ocre", "h": "#CC7722", "c": "Marrones", "r": 204, "g": 119, "b": 34, "hh": 30, "hs": 71, "hl": 47, "tc": "#fff", "sh": ["#fbf2e9", "#f4d9be", "#edbf92", "#e5a666", "#de8c3b", "#c47321", "#99591a", "#6d4012", "#41260b"] }, { "n": "Siena", "h": "#A0522D", "c": "Marrones", "r": 160, "g": 82, "b": 45, "hh": 19, "hs": 56, "hl": 40, "tc": "#fff", "sh": ["#f9f0eb", "#eed1c3", "#e3b29c", "#d89374", "#cd754c", "#b35b32", "#8b4727", "#63331c", "#3c1e11"] }, { "n": "Tostado", "h": "#D2B48C", "c": "Marrones", "r": 210, "g": 180, "b": 140, "hh": 34, "hs": 44, "hl": 69, "tc": "#111", "sh": ["#f8f3ed", "#eadbc8", "#dbc3a3", "#cdab7e", "#bf935a", "#a57940", "#815e32", "#5c4324", "#372815"] }, { "n": "Caramelo", "h": "#C68642", "c": "Marrones", "r": 198, "g": 134, "b": 66, "hh": 31, "hs": 54, "hl": 52, "tc": "#111", "sh": ["#f9f2eb", "#edd9c4", "#e2c09d", "#d6a776", "#ca8e4e", "#b17535", "#895b29", "#62411d", "#3b2712"] }, { "n": "Avellana", "h": "#795548", "c": "Marrones", "r": 121, "g": 85, "b": 72, "hh": 16, "hs": 25, "hl": 38, "tc": "#fff", "sh": ["#f5f1ef", "#e2d4cf", "#cfb8af", "#bc9b8f", "#a97f70", "#8f6556", "#704f43", "#503830", "#30221d"] }, { "n": "Castano", "h": "#8D4E33", "c": "Marrones", "r": 141, "g": 78, "b": 51, "hh": 18, "hs": 47, "hl": 38, "tc": "#fff", "sh": ["#f8f0ec", "#ebd2c7", "#ddb3a1", "#d0957c", "#c27756", "#a95d3d", "#83482f", "#5e3422", "#381f14"] }, { "n": "Canela", "h": "#9B7A41", "c": "Marrones", "r": 155, "g": 122, "b": 65, "hh": 38, "hs": 41, "hl": 43, "tc": "#fff", "sh": ["#f7f4ed", "#e8ddc9", "#d9c6a5", "#cab081", "#bb995d", "#a27f44", "#7e6335", "#5a4726", "#362a17"] }, { "n": "Blanco", "h": "#FFFFFF", "c": "Blancos", "r": 255, "g": 255, "b": 255, "hh": 0, "hs": 0, "hl": 100, "tc": "#111", "sh": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#a6a6a6", "#8c8c8c", "#737373", "#595959", "#404040", "#262626"] }, { "n": "Blanco Nieve", "h": "#FFFAFA", "c": "Blancos", "r": 255, "g": 250, "b": 250, "hh": 0, "hs": 100, "hl": 99, "tc": "#111", "sh": ["#ffe5e5", "#ffb2b2", "#ff8080", "#ff4d4d", "#ff1a1a", "#e60000", "#b20000", "#800000", "#4c0000"] }, { "n": "Marfil", "h": "#FFFFF0", "c": "Blancos", "r": 255, "g": 255, "b": 240, "hh": 60, "hs": 100, "hl": 97, "tc": "#111", "sh": ["#ffffe5", "#ffffb2", "#ffff80", "#ffff4d", "#ffff1a", "#e6e600", "#b2b200", "#808000", "#4c4c00"] }, { "n": "Alabastro", "h": "#F2F0E6", "c": "Blancos", "r": 242, "g": 240, "b": 230, "hh": 50, "hs": 32, "hl": 93, "tc": "#111", "sh": ["#f6f5ee", "#e5e1cd", "#d4cdab", "#c2b989", "#b1a568", "#978b4e", "#766c3d", "#544d2b", "#322e1a"] }, { "n": "Blanco Perla", "h": "#F8F0E3", "c": "Blancos", "r": 248, "g": 240, "b": 227, "hh": 37, "hs": 60, "hl": 93, "tc": "#111", "sh": ["#faf4eb", "#f0dec2", "#e6c899", "#dbb270", "#d19c47", "#b8832e", "#8f6624", "#66491a", "#3d2c0f"] }, { "n": "Lino", "h": "#FAF0E6", "c": "Blancos", "r": 250, "g": 240, "b": 230, "hh": 30, "hs": 67, "hl": 94, "tc": "#111", "sh": ["#fbf2ea", "#f2d9bf", "#eabf95", "#e2a66a", "#d98c3f", "#c07326", "#95591d", "#6a4015", "#40260d"] }, { "n": "Hueso", "h": "#F9F6EE", "c": "Blancos", "r": 249, "g": 246, "b": 238, "hh": 44, "hs": 48, "hl": 95, "tc": "#111", "sh": ["#f8f5ec", "#ebe1c6", "#decea1", "#d1ba7b", "#c3a655", "#aa8c3c", "#846d2e", "#5e4e21", "#392f14"] }, { "n": "Nacar", "h": "#FDEEF4", "c": "Blancos", "r": 253, "g": 238, "b": 244, "hh": 336, "hs": 79, "hl": 96, "tc": "#111", "sh": ["#fce8f0", "#f7bbd3", "#f28db5", "#ec5f98", "#e7327a", "#cd1861", "#a0134b", "#720d36", "#440820"] }, { "n": "Gris", "h": "#808080", "c": "Grises", "r": 128, "g": 128, "b": 128, "hh": 0, "hs": 0, "hl": 50, "tc": "#fff", "sh": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#a6a6a6", "#8c8c8c", "#737373", "#595959", "#404040", "#262626"] }, { "n": "Gris Claro", "h": "#D3D3D3", "c": "Grises", "r": 211, "g": 211, "b": 211, "hh": 0, "hs": 0, "hl": 83, "tc": "#111", "sh": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#a6a6a6", "#8c8c8c", "#737373", "#595959", "#404040", "#262626"] }, { "n": "Gris Oscuro", "h": "#404040", "c": "Grises", "r": 64, "g": 64, "b": 64, "hh": 0, "hs": 0, "hl": 25, "tc": "#fff", "sh": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#a6a6a6", "#8c8c8c", "#737373", "#595959", "#404040", "#262626"] }, { "n": "Plata", "h": "#C0C0C0", "c": "Grises", "r": 192, "g": 192, "b": 192, "hh": 0, "hs": 0, "hl": 75, "tc": "#111", "sh": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#a6a6a6", "#8c8c8c", "#737373", "#595959", "#404040", "#262626"] }, { "n": "Gris Pizarra", "h": "#708090", "c": "Grises", "r": 112, "g": 128, "b": 144, "hh": 210, "hs": 13, "hl": 50, "tc": "#fff", "sh": ["#f1f2f4", "#d4d9de", "#b7bfc8", "#9aa6b1", "#7d8c9b", "#647382", "#4e5965", "#374048", "#21262b"] }, { "n": "Gris Acero", "h": "#71797E", "c": "Grises", "r": 113, "g": 121, "b": 126, "hh": 203, "hs": 5, "hl": 47, "tc": "#fff", "sh": ["#f2f2f3", "#d7d9db", "#bcc0c2", "#a1a7aa", "#878e92", "#6d7478", "#555a5e", "#3d4043", "#242728"] }, { "n": "Gris Azulado", "h": "#7393B3", "c": "Grises", "r": 115, "g": 147, "b": 179, "hh": 210, "hs": 30, "hl": 58, "tc": "#111", "sh": ["#eef2f6", "#cdd9e4", "#acbfd2", "#8ba6c1", "#6a8caf", "#507395", "#3e5974", "#2d4053", "#1b2632"] }, { "n": "Gris Neutro", "h": "#A8A9AD", "c": "Grises", "r": 168, "g": 169, "b": 173, "hh": 228, "hs": 3, "hl": 67, "tc": "#111", "sh": ["#f2f2f3", "#d8d8da", "#bdbec1", "#a3a4a8", "#898a90", "#6f7176", "#57585c", "#3e3f42", "#252627"] }, { "n": "Gris Perla", "h": "#E8E8E8", "c": "Grises", "r": 232, "g": 232, "b": 232, "hh": 0, "hs": 0, "hl": 91, "tc": "#111", "sh": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#a6a6a6", "#8c8c8c", "#737373", "#595959", "#404040", "#262626"] }, { "n": "Carbon", "h": "#36454F", "c": "Grises", "r": 54, "g": 69, "b": 79, "hh": 204, "hs": 19, "hl": 26, "tc": "#fff", "sh": ["#f0f3f5", "#d1dae0", "#b3c2cb", "#95a9b7", "#7691a2", "#5d7789", "#485d6a", "#34424c", "#1f282e"] }, { "n": "Negro", "h": "#222222", "c": "Negros", "r": 34, "g": 34, "b": 34, "hh": 0, "hs": 0, "hl": 13, "tc": "#fff", "sh": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#a6a6a6", "#8c8c8c", "#737373", "#595959", "#404040", "#262626"] }, { "n": "Negro Ebano", "h": "#3C3C3C", "c": "Negros", "r": 60, "g": 60, "b": 60, "hh": 0, "hs": 0, "hl": 24, "tc": "#fff", "sh": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#a6a6a6", "#8c8c8c", "#737373", "#595959", "#404040", "#262626"] }, { "n": "Negro Jet", "h": "#343434", "c": "Negros", "r": 52, "g": 52, "b": 52, "hh": 0, "hs": 0, "hl": 20, "tc": "#fff", "sh": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#a6a6a6", "#8c8c8c", "#737373", "#595959", "#404040", "#262626"] }, { "n": "Negro Grafito", "h": "#2C2C2C", "c": "Negros", "r": 44, "g": 44, "b": 44, "hh": 0, "hs": 0, "hl": 17, "tc": "#fff", "sh": ["#f2f2f2", "#d9d9d9", "#bfbfbf", "#a6a6a6", "#8c8c8c", "#737373", "#595959", "#404040", "#262626"] }, { "n": "Bronce", "h": "#CD7F32", "c": "Especiales", "r": 205, "g": 127, "b": 50, "hh": 30, "hs": 61, "hl": 50, "tc": "#111", "sh": ["#faf2ea", "#f0d9c1", "#e6bf98", "#dca66f", "#d28c46", "#b9732d", "#905923", "#674019", "#3e260f"] }, { "n": "Oro Rosa", "h": "#B76E79", "c": "Especiales", "r": 183, "g": 110, "b": 121, "hh": 351, "hs": 34, "hl": 57, "tc": "#fff", "sh": ["#f7eeef", "#e6ccd0", "#d5aab0", "#c48791", "#b36571", "#9a4c57", "#783b44", "#552a31", "#33191d"] }, { "n": "Topacio", "h": "#FFC87C", "c": "Especiales", "r": 255, "g": 200, "b": 124, "hh": 35, "hs": 100, "hl": 74, "tc": "#111", "sh": ["#fff4e5", "#ffdfb2", "#ffca80", "#ffb54d", "#ff9f1a", "#e68600", "#b26800", "#804a00", "#4c2d00"] }, { "n": "Rubi", "h": "#9B111E", "c": "Especiales", "r": 155, "g": 17, "b": 30, "hh": 354, "hs": 80, "hl": 34, "tc": "#fff", "sh": ["#fce8ea", "#f7bac0", "#f28c96", "#ed5e6d", "#e83043", "#cf1729", "#a11220", "#730d17", "#45080e"] }, { "n": "Zafiro", "h": "#0F52BA", "c": "Especiales", "r": 15, "g": 82, "b": 186, "hh": 216, "hs": 85, "hl": 39, "tc": "#fff", "sh": ["#e7f0fd", "#b8d2f9", "#89b4f5", "#5a97f2", "#2b79ee", "#115fd4", "#0d4aa5", "#0a3576", "#062047"] }, { "n": "Platino", "h": "#E5E4E2", "c": "Especiales", "r": 229, "g": 228, "b": 226, "hh": 40, "hs": 5, "hl": 89, "tc": "#111", "sh": ["#f3f2f2", "#dbd9d7", "#c2c0bc", "#aaa7a1", "#928e87", "#78756d", "#5e5b55", "#43413d", "#282724"] }, { "n": "Perla", "h": "#F0EAD6", "c": "Especiales", "r": 240, "g": 234, "b": 214, "hh": 46, "hs": 46, "hl": 89, "tc": "#111", "sh": ["#f8f5ec", "#eae2c7", "#ddcfa2", "#cfbc7d", "#c1a857", "#a88f3e", "#826f30", "#5d4f22", "#383015"] }, { "n": "Ambar Dorado", "h": "#FFBF00", "c": "Especiales", "r": 255, "g": 191, "b": 0, "hh": 45, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#fff9e5", "#ffecb2", "#ffdf80", "#ffd24d", "#ffc61a", "#e6ac00", "#b28600", "#806000", "#4c3900"] }, { "n": "Pastel Rosa", "h": "#FFD1DC", "c": "Pasteles", "r": 255, "g": 209, "b": 220, "hh": 346, "hs": 100, "hl": 91, "tc": "#111", "sh": ["#ffe5eb", "#ffb2c4", "#ff809d", "#ff4d76", "#ff1a4f", "#e60036", "#b2002a", "#80001e", "#4c0012"] }, { "n": "Pastel Azul", "h": "#AEC6CF", "c": "Pasteles", "r": 174, "g": 198, "b": 207, "hh": 196, "hs": 26, "hl": 75, "tc": "#111", "sh": ["#eff4f6", "#cfdde3", "#afc7d0", "#8fb1bd", "#6e9aaa", "#558191", "#426470", "#2f4750", "#1c2b30"] }, { "n": "Pastel Verde", "h": "#77DD77", "c": "Pasteles", "r": 119, "g": 221, "b": 119, "hh": 120, "hs": 60, "hl": 67, "tc": "#111", "sh": ["#ebfaeb", "#c2f0c2", "#99e699", "#70db70", "#47d147", "#2eb82e", "#248f24", "#1a661a", "#0f3d0f"] }, { "n": "Pastel Lila", "h": "#B39EB5", "c": "Pasteles", "r": 179, "g": 158, "b": 181, "hh": 295, "hs": 13, "hl": 66, "tc": "#111", "sh": ["#f4f1f4", "#ddd4de", "#c6b7c8", "#af9ab1", "#997d9b", "#7f6482", "#634e65", "#473748", "#2a212b"] }, { "n": "Pastel Amarillo", "h": "#FDFD96", "c": "Pasteles", "r": 253, "g": 253, "b": 150, "hh": 60, "hs": 96, "hl": 79, "tc": "#111", "sh": ["#fefee6", "#fdfdb4", "#fcfc82", "#fbfb50", "#fafa1e", "#e1e105", "#afaf04", "#7d7d03", "#4b4b02"] }, { "n": "Pastel Melocoton", "h": "#FFCBA4", "c": "Pasteles", "r": 255, "g": 203, "b": 164, "hh": 26, "hs": 100, "hl": 82, "tc": "#111", "sh": ["#fff1e5", "#ffd4b2", "#ffb780", "#ff9a4d", "#ff7d1a", "#e66300", "#b24d00", "#803700", "#4c2100"] }, { "n": "Pastel Menta", "h": "#98FF98", "c": "Pasteles", "r": 152, "g": 255, "b": 152, "hh": 120, "hs": 100, "hl": 80, "tc": "#111", "sh": ["#e5ffe5", "#b2ffb2", "#80ff80", "#4dff4d", "#1aff1a", "#00e600", "#00b200", "#008000", "#004c00"] }, { "n": "Pastel Lavanda", "h": "#E6DEFF", "c": "Pasteles", "r": 230, "g": 222, "b": 255, "hh": 255, "hs": 100, "hl": 94, "tc": "#111", "sh": ["#ece5ff", "#c6b2ff", "#9f80ff", "#794dff", "#531aff", "#3900e6", "#2d00b2", "#200080", "#13004c"] }, { "n": "Pastel Coral", "h": "#FFB7C5", "c": "Pasteles", "r": 255, "g": 183, "b": 197, "hh": 348, "hs": 100, "hl": 86, "tc": "#111", "sh": ["#ffe5eb", "#ffb2c2", "#ff8099", "#ff4d70", "#ff1a47", "#e6002e", "#b20024", "#80001a", "#4c000f"] }, { "n": "Pastel Celeste", "h": "#CCEFFD", "c": "Pasteles", "r": 204, "g": 239, "b": 253, "hh": 197, "hs": 92, "hl": 90, "tc": "#111", "sh": ["#e7f7fe", "#b6e8fc", "#85d9fa", "#54c9f8", "#23baf6", "#09a0dc", "#077dab", "#05597a", "#033549"] }, { "n": "Neon Verde", "h": "#39FF14", "c": "Neon", "r": 57, "g": 255, "b": 20, "hh": 111, "hs": 100, "hl": 54, "tc": "#111", "sh": ["#e9ffe5", "#beffb2", "#93ff80", "#67ff4d", "#3cff1a", "#22e600", "#1bb200", "#138000", "#0b4c00"] }, { "n": "Neon Naranja", "h": "#FF6700", "c": "Neon", "r": 255, "g": 103, "b": 0, "hh": 24, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#fff0e5", "#ffd1b2", "#ffb380", "#ff944d", "#ff751a", "#e65c00", "#b24700", "#803300", "#4c1f00"] }, { "n": "Neon Rosa", "h": "#FF10F0", "c": "Neon", "r": 255, "g": 16, "b": 240, "hh": 304, "hs": 100, "hl": 53, "tc": "#fff", "sh": ["#ffe5fd", "#ffb2fa", "#ff80f7", "#ff4df3", "#ff1af0", "#e600d6", "#b200a7", "#800077", "#4c0047"] }, { "n": "Neon Amarillo", "h": "#DFFF00", "c": "Neon", "r": 223, "g": 255, "b": 0, "hh": 68, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#fcffe5", "#f5ffb2", "#eeff80", "#e7ff4d", "#e0ff1a", "#c7e600", "#9bb200", "#6e8000", "#424c00"] }, { "n": "Neon Rojo", "h": "#FF0800", "c": "Neon", "r": 255, "g": 8, "b": 0, "hh": 2, "hs": 100, "hl": 50, "tc": "#fff", "sh": ["#ffe6e5", "#ffb5b2", "#ff8480", "#ff524d", "#ff211a", "#e60800", "#b20600", "#800400", "#4c0300"] }, { "n": "Neon Cian", "h": "#00FFEF", "c": "Neon", "r": 0, "g": 255, "b": 239, "hh": 176, "hs": 100, "hl": 50, "tc": "#111", "sh": ["#e5fffd", "#b2fffa", "#80fff7", "#4dfff3", "#1afff0", "#00e6d6", "#00b2a7", "#008077", "#004c47"] }, { "n": "Neon Morado", "h": "#BF00FF", "c": "Neon", "r": 191, "g": 0, "b": 255, "hh": 285, "hs": 100, "hl": 50, "tc": "#fff", "sh": ["#f9e5ff", "#ecb2ff", "#df80ff", "#d24dff", "#c61aff", "#ac00e6", "#8600b2", "#600080", "#39004c"] }, { "n": "Cielo", "h": "#87CEEB", "c": "Naturaleza", "r": 135, "g": 206, "b": 235, "hh": 197, "hs": 71, "hl": 73, "tc": "#111", "sh": ["#e9f6fb", "#bee5f4", "#92d3ed", "#66c1e5", "#3bb0de", "#2196c4", "#1a7599", "#12536d", "#0b3241"] }, { "n": "Mar", "h": "#006994", "c": "Naturaleza", "r": 0, "g": 105, "b": 148, "hh": 197, "hs": 100, "hl": 29, "tc": "#fff", "sh": ["#e5f8ff", "#b2e9ff", "#80dbff", "#4dccff", "#1abeff", "#00a4e6", "#0080b2", "#005b80", "#00374c"] }, { "n": "Arena", "h": "#C2B280", "c": "Naturaleza", "r": 194, "g": 178, "b": 128, "hh": 45, "hs": 35, "hl": 63, "tc": "#111", "sh": ["#f7f4ee", "#e6dfcb", "#d6caa9", "#c5b587", "#b4a064", "#9b874b", "#78693a", "#564b29", "#342d19"] }, { "n": "Tierra", "h": "#8B7355", "c": "Naturaleza", "r": 139, "g": 115, "b": 85, "hh": 33, "hs": 24, "hl": 44, "tc": "#fff", "sh": ["#f5f3ef", "#e2dad0", "#cfc1b0", "#bba890", "#a88f71", "#8e7657", "#6f5b44", "#4f4130", "#2f271d"] }, { "n": "Pino", "h": "#01796F", "c": "Naturaleza", "r": 1, "g": 121, "b": 111, "hh": 175, "hs": 98, "hl": 24, "tc": "#fff", "sh": ["#e6fffd", "#b3fef8", "#81fef3", "#4efdef", "#1cfdea", "#02e3d0", "#02b1a2", "#017e74", "#014c45"] }, { "n": "Musgo", "h": "#8A9A5B", "c": "Naturaleza", "r": 138, "g": 154, "b": 91, "hh": 75, "hs": 26, "hl": 48, "tc": "#111", "sh": ["#f4f6ef", "#dee3cf", "#c8d0af", "#b1bd8f", "#9baa6e", "#829155", "#657042", "#48502f", "#2b301c"] }, { "n": "Nuez", "h": "#8B6914", "c": "Naturaleza", "r": 139, "g": 105, "b": 20, "hh": 43, "hs": 75, "hl": 31, "tc": "#fff", "sh": ["#fcf6e9", "#f5e5bc", "#efd48f", "#e9c363", "#e2b236", "#c9981d", "#9c7616", "#705410", "#43330a"] }, { "n": "Coral Marino", "h": "#FF7F50", "c": "Naturaleza", "r": 255, "g": 127, "b": 80, "hh": 16, "hs": 100, "hl": 66, "tc": "#111", "sh": ["#ffece5", "#ffc7b2", "#ffa280", "#ff7c4d", "#ff571a", "#e63d00", "#b23000", "#802200", "#4c1400"] }, { "n": "Lavanda Campo", "h": "#967BB6", "c": "Naturaleza", "r": 150, "g": 123, "b": 182, "hh": 267, "hs": 29, "hl": 60, "tc": "#111", "sh": ["#f2eff6", "#d8cee4", "#bdadd2", "#a38cc0", "#896bae", "#6f5194", "#573f73", "#3e2d52", "#251b31"] }, { "n": "Piedra", "h": "#928E85", "c": "Naturaleza", "r": 146, "g": 142, "b": 133, "hh": 42, "hs": 6, "hl": 55, "tc": "#111", "sh": ["#f3f3f1", "#dbdad6", "#c3c1bb", "#aba8a0", "#938f85", "#7a766c", "#5f5b54", "#44413c", "#292724"] }];
+
+        /* ── COPY ── */
+        function doCopy(v) {
+            try {
+                var el = document.createElement('input');
+                el.setAttribute('readonly', '');
+                el.value = v;
+                el.style.cssText = 'position:fixed;top:0;left:0;width:2px;height:2px;opacity:0;border:0';
+                document.body.appendChild(el);
+                el.focus(); el.select(); el.setSelectionRange(0, 9999);
+                document.execCommand('copy');
+                document.body.removeChild(el);
+            } catch (e) { }
+            try { if (navigator.clipboard) navigator.clipboard.writeText(v); } catch (e) { }
+            var t = document.getElementById('toast');
+            t.textContent = 'Copiado: ' + v;
+            t.className = 'toast on';
+            clearTimeout(t._t);
+            t._t = setTimeout(function () { t.className = 'toast'; }, 2200);
+        }
+
+        /* ── MODAL OPEN/CLOSE ── */
+        function openModal(idx) {
+            var c = C[idx];
+            var mhdr = document.getElementById('mhdr');
+            mhdr.style.background = c.h;
+            var mname = document.getElementById('mname');
+            mname.textContent = c.n; mname.style.color = c.tc;
+            document.getElementById('mx').style.color = c.tc;
+
+            var codes = document.getElementById('codes');
+            codes.innerHTML = '';
+            var rows = [['HEX', c.h], ['RGB', 'rgb(' + c.r + ',' + c.g + ',' + c.b + ')'], ['HSL', 'hsl(' + c.hh + ',' + c.hs + '%,' + c.hl + '%)'], ['Categoria', c.c]];
+            for (var i = 0; i < rows.length; i++) {
+                var box = document.createElement('div'); box.className = 'cbox';
+                var lbl = document.createElement('span'); lbl.className = 'clbl'; lbl.textContent = rows[i][0];
+                var row = document.createElement('div'); row.className = 'crow';
+                var val = document.createElement('span'); val.className = 'cval'; val.textContent = rows[i][1];
+                var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'cpb'; btn.textContent = 'Copiar';
+                (function (v) { btn.onclick = function () { doCopy(v); }; })(rows[i][1]);
+                row.appendChild(val); row.appendChild(btn); box.appendChild(lbl); box.appendChild(row); codes.appendChild(box);
+            }
+
+            var mgrid = document.getElementById('mgrid');
+            mgrid.innerHTML = '';
+            var lvls = [95, 85, 75, 65, 55, 45, 35, 25, 15];
+            for (var j = 0; j < c.sh.length; j++) {
+                var b = document.createElement('button'); b.type = 'button'; b.className = 'mc';
+                b.style.background = c.sh[j];
+                var sp = document.createElement('span'); sp.textContent = lvls[j] + '%';
+                b.appendChild(sp);
+                (function (v) { b.onclick = function () { doCopy(v); }; })(c.sh[j]);
+                mgrid.appendChild(b);
+            }
+
+            document.getElementById('ov').style.display = 'block';
+            document.getElementById('mdl').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('ov').style.display = 'none';
+            document.getElementById('mdl').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('mx').onclick = closeModal;
+        document.getElementById('ov').onclick = closeModal;
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+        /* ── CARDS: event delegation on #wrap ──
+           Using touchend + click delegation is the MOST reliable for iOS+Android.
+           touchend fires before click and we prevent the 300ms delay.
+           We track touchmove to distinguish tap from scroll. */
+        var wrap = document.getElementById('wrap');
+        var _moved = false;
+
+        wrap.addEventListener('touchstart', function () { _moved = false; }, { passive: true });
+        wrap.addEventListener('touchmove', function () { _moved = true; }, { passive: true });
+        wrap.addEventListener('touchend', function (e) {
+            if (_moved) return;
+            var node = e.target;
+            while (node && node !== wrap) {
+                if (node.getAttribute && node.getAttribute('data-i') !== null) {
+                    e.preventDefault();
+                    openModal(parseInt(node.getAttribute('data-i'), 10));
+                    return;
+                }
+                node = node.parentNode;
+            }
+        }, false);
+
+        // Desktop click fallback
+        wrap.addEventListener('click', function (e) {
+            var node = e.target;
+            while (node && node !== wrap) {
+                if (node.getAttribute && node.getAttribute('data-i') !== null) {
+                    openModal(parseInt(node.getAttribute('data-i'), 10));
+                    return;
+                }
+                node = node.parentNode;
+            }
+        }, false);
+
+        /* ── TAGS ── */
+        var tgs = document.getElementById('tgs');
+        var activeCat = 'all';
+        tgs.addEventListener('touchend', function (e) {
+            var el = e.target;
+            if (el.getAttribute('data-cat')) {
+                e.preventDefault();
+                activeCat = el.getAttribute('data-cat');
+                var all = tgs.querySelectorAll('.tg');
+                for (var i = 0; i < all.length; i++) all[i].className = 'tg';
+                el.className = 'tg active';
+                doFilter();
+            }
+        }, false);
+        tgs.addEventListener('click', function (e) {
+            var el = e.target;
+            if (el.getAttribute('data-cat')) {
+                activeCat = el.getAttribute('data-cat');
+                var all = tgs.querySelectorAll('.tg');
+                for (var i = 0; i < all.length; i++) all[i].className = 'tg';
+                el.className = 'tg active';
+                doFilter();
+            }
+        }, false);
+
+        /* ── SEARCH ── */
+        var srch = document.getElementById('srch');
+
+        function normalizeStr(str) {
+            if(!str) return "";
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+        }
+
+        function doSearchTrigger() {
+            if (srch.value.trim() !== '') {
+                activeCat = 'all';
+                var all = tgs.querySelectorAll('.tg');
+                for (var i = 0; i < all.length; i++) all[i].className = 'tg';
+                var tAll = tgs.querySelector('.tg[data-cat="all"]');
+                if (tAll) tAll.className = 'tg active';
+            }
+            doFilter();
+        }
+
+        srch.addEventListener('input', doSearchTrigger, false);
+        srch.addEventListener('keyup', doSearchTrigger, false);
+        srch.addEventListener('search', doSearchTrigger, false);
+
+        function doFilter() {
+            var q = normalizeStr(srch.value);
+            var secs = document.querySelectorAll('.sec');
+            var any = false;
+            for (var i = 0; i < secs.length; i++) {
+                var sec = secs[i];
+                if (activeCat !== 'all' && activeCat !== sec.getAttribute('data-cat')) {
+                    sec.style.display = 'none'; continue;
+                }
+                var cards = sec.querySelectorAll('.card');
+                var vis = 0;
+                for (var j = 0; j < cards.length; j++) {
+                    var ci = parseInt(cards[j].getAttribute('data-i'), 10);
+                    var cName = normalizeStr(C[ci].n);
+                    var cCat = normalizeStr(C[ci].c);
+                    var ok = !q || cName.indexOf(q) >= 0 || C[ci].h.toLowerCase().indexOf(q) >= 0 || cCat.indexOf(q) >= 0;
+                    cards[j].style.display = ok ? '' : 'none';
+                    if (ok) { vis++; any = true; }
+                }
+                sec.style.display = vis > 0 ? '' : 'none';
+            }
+            document.getElementById('nores').style.display = any ? 'none' : 'block';
+        }
+    </script>
+</body>
+
+</html>
